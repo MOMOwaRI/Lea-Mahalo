@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美容師セレクト｜Lea Mahalo メルカリセレクト</title>
+<meta name="description" content="美容室MAHALOの視点で選んだ、プロ用ドライヤーなどのアイテムです。">
+<style>
+  :root{--ivory:#FFF9F3;--rose:#E38CA0;--rose-deep:#B84A62;--rose-soft:#FBE9EE;--mint:#9CC5A1;--ink:#4A3338;--gold:#C9A227}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ivory);color:var(--ink);font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;line-height:1.7}
+  h1,h2,h3{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .wrap{max-width:980px;margin:0 auto;padding:0 16px}
+  header{background:linear-gradient(135deg,#FDEDF1,#FFF9F3 60%);border-bottom:2px solid var(--rose-soft);padding:28px 0 20px;text-align:center}
+  .badge{display:inline-block;background:var(--gold);color:#fff;font-size:12px;padding:2px 10px;border-radius:999px;letter-spacing:.1em}
+  header h1{font-size:30px;margin:10px 0 4px;color:var(--rose-deep)}
+  header .sub{font-size:14px;color:#8a6a70}
+  .stats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+  .stats div{background:#fff;border:1px solid var(--rose-soft);border-radius:12px;padding:8px 16px;font-size:13px}
+  .stats b{color:var(--rose-deep);font-size:16px}
+  .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px 0 4px}
+  .btn{display:inline-block;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:700;font-size:15px}
+  .btn-main{background:var(--rose-deep);color:#fff}
+  .btn-sub{background:#fff;color:var(--rose-deep);border:2px solid var(--rose)}
+  .note{font-size:12px;color:#9a7d82;text-align:center;margin-top:8px}
+  section{padding:28px 0 8px}
+  h2{font-size:22px;color:var(--rose-deep);border-left:6px solid var(--rose);padding-left:10px;margin-bottom:6px}
+  .seclead{font-size:14px;color:#7c5c62;margin-bottom:14px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+  .chip{border:2px solid var(--rose);background:#fff;color:var(--rose-deep);border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;font-weight:700}
+  .chip.on{background:var(--rose-deep);color:#fff}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+  .card{position:relative;background:#fff;border:1px solid #F3DCE1;border-radius:14px;overflow:hidden;text-decoration:none;color:var(--ink);display:block;transition:transform .15s}
+  .card:hover{transform:translateY(-3px)}
+  .card img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#f6ecec}
+  .card .body{padding:10px 12px 12px}
+  .tag{display:inline-block;font-size:11px;background:var(--rose-soft);color:var(--rose-deep);border-radius:6px;padding:1px 8px;margin-bottom:4px}
+  .tag.retro{background:#FFF3D6;color:#96700A}.tag.baby{background:#E4F2E6;color:#3E7046}
+  .card h3{font-family:inherit;font-size:13px;font-weight:600;line-height:1.5;min-height:3em}
+  .price{font-size:17px;font-weight:800;color:var(--rose-deep);margin-top:4px}
+  .price small{font-size:11px;color:#9a7d82;font-weight:400}
+  .coord{background:#fff;border:2px dashed var(--rose);border-radius:16px;padding:16px;margin-bottom:16px}
+  .coord h3{font-size:17px;color:var(--rose-deep);margin-bottom:8px}
+  .coord .items{display:flex;gap:12px;flex-wrap:wrap}
+  .coord .items a{flex:1;min-width:140px;text-decoration:none;color:var(--ink);background:var(--ivory);border-radius:12px;padding:8px;text-align:center;font-size:12px}
+  .coord .items img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
+  .coord .total{margin-top:10px;font-weight:800;color:var(--rose-deep)}
+  .coord img.head{width:100%;display:block;border-radius:12px;margin-bottom:10px}
+  .coord .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .coord .links a{background:var(--rose-soft);color:var(--rose-deep);text-decoration:none;font-size:13px;font-weight:700;border-radius:999px;padding:6px 14px}
+  .about{background:#fff;border:1px solid #F3DCE1;border-radius:16px;padding:18px;font-size:14px}
+  footer{padding:28px 0 40px;font-size:12px;color:#9a7d82;text-align:center}
+  footer a{color:var(--rose-deep)}
+  .hidden{display:none}
+
+  .searchbox{display:flex;gap:8px;margin:6px 0 2px}
+  .searchbox input{flex:1;padding:11px 14px;border:1.5px solid var(--line);border-radius:999px;font-size:15px;background:#fff;color:var(--ink)}
+  .cchips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 4px}
+  .cchip{border:1.5px solid var(--rose);background:#fff;color:var(--rose);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700;cursor:pointer}
+  .tchip{border:1.5px solid var(--rose);background:#fff;color:var(--rose);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700;cursor:pointer}
+  .cchip.on{background:var(--rose);color:#fff}
+  .tchip.on{background:var(--rose);color:#fff}
+  .feat{background:#EAF6EC;border:1.5px solid #BFE3C6;border-radius:18px;padding:18px;margin:26px 0}
+  .feat h2{color:#2E7D43}
+  .maker{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:18px;margin:26px 0}
+  .maker select{width:100%;padding:11px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;margin:6px 0 12px;background:#fff}
+  .maker .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .maker .pair img{width:100%;border-radius:12px;aspect-ratio:1;object-fit:cover}
+  .maker .total{font-size:20px;color:var(--rose);font-weight:800;margin:10px 0}
+  details.faq{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;margin:8px 0}
+  details.faq summary{font-weight:800;cursor:pointer;color:var(--rose)}
+  details.faq p{font-size:14px;margin:8px 0 2px}
+  #botBtn{position:fixed;right:16px;bottom:16px;z-index:60;background:var(--rose);color:#fff;border:none;border-radius:999px;padding:14px 20px;font-size:15px;font-weight:800;box-shadow:0 6px 18px rgba(184,74,98,.35);cursor:pointer}
+  #botPanel{position:fixed;right:16px;bottom:76px;z-index:60;width:min(92vw,360px);height:480px;max-height:70vh;background:#fff;border:1.5px solid var(--line);border-radius:18px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.18)}
+  #botPanel.open{display:flex}
+  #botHead{background:var(--rose);color:#fff;padding:12px 16px;font-weight:800}
+  #botLog{flex:1;overflow-y:auto;padding:12px;font-size:14px;line-height:1.6}
+  #botLog .me{text-align:right;margin:8px 0}
+  #botLog .me span{background:#FDECEF;border-radius:12px;padding:7px 11px;display:inline-block}
+  #botLog .bot span{background:#F6EFE9;border-radius:12px;padding:7px 11px;display:inline-block}
+  .bgo{display:inline-block;margin-top:7px;background:var(--rose);color:#fff;padding:7px 14px;border-radius:999px;font-weight:800;font-size:13px;text-decoration:none}
+  .bgo.sub{background:#fff;color:var(--rose-deep);border:1.5px solid var(--rose)}
+  #botQuick{display:flex;gap:6px;flex-wrap:wrap;padding:8px 12px;border-top:1px solid var(--line)}
+  #botQuick button{border:1.5px solid var(--rose);background:#fff;color:var(--rose);border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700;cursor:pointer}
+  #botForm{display:flex;border-top:1px solid var(--line)}
+  #botInput{flex:1;border:none;padding:12px;font-size:14px}
+  #botSend{border:none;background:var(--rose);color:#fff;padding:0 16px;font-weight:800;cursor:pointer}
+
+  .hero-banner{width:100%;height:auto;display:block;border-radius:16px;margin-bottom:18px;border:2px solid #D98CA0;box-shadow:0 6px 18px rgba(184,74,98,.22);background:#F7D6DD}
+  .slides{position:relative;width:100%;max-width:520px;margin:0 auto;aspect-ratio:4/3;overflow:hidden;border-radius:14px}
+  .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 40s infinite}
+.slides img:nth-child(2){animation-delay:5s}
+.slides img:nth-child(3){animation-delay:10s}
+.slides img:nth-child(4){animation-delay:15s}
+.slides img:nth-child(5){animation-delay:20s}
+.slides img:nth-child(6){animation-delay:25s}
+.slides img:nth-child(7){animation-delay:30s}
+.slides img:nth-child(8){animation-delay:35s}
+  
+  @keyframes fade{0%{opacity:0}6%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
+  .coord img.wornimg{width:100%;display:block}
+
+  .pagehead{background:linear-gradient(135deg,#FDEDF1,#FFF9F3 60%);border-bottom:2px solid var(--rose-soft);padding:22px 0 14px;text-align:center}
+  .pagehead h1{font-size:26px;color:var(--rose-deep)}
+  .backbtn{display:inline-block;margin:14px 0;background:#fff;border:2px solid var(--rose);color:var(--rose-deep);border-radius:999px;padding:8px 18px;font-weight:800;text-decoration:none}
+  .linkcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  .lcard{display:block;background:#fff;border:2px solid var(--rose-soft);border-radius:14px;padding:14px 12px;text-decoration:none;color:var(--ink)}
+  .lcard strong{display:block;font-size:16px;color:var(--rose-deep);margin-bottom:2px}
+  .lcard small{color:#7c5c62}
+  .featbtn{display:inline-block;margin-top:10px;background:var(--rose);color:#fff;border-radius:999px;padding:9px 20px;font-weight:800;text-decoration:none}
+</style>
+</head>
+<body>
+<header class="pagehead"><div class="wrap"><p style="font-weight:800;color:var(--rose)">雑貨屋 Lea Mahalo（松山市）</p><h1>美容師セレクト</h1><p class="seclead">美容室MAHALOの視点で選んだ、プロ用ドライヤーなどのアイテムです。</p></div></header>
+<main class="wrap">
+  <a class="backbtn" href="index.html">← HOMEへ戻る</a>
+  <p class="note">ご購入前に、必ず<strong>在庫確認コメント</strong>をお願いします（必須）。実店舗と在庫を共有しているため、確認なしのご購入はキャンセルをお願いする場合があります。価格・在庫はメルカリ側の表示が最新です。</p>
+  <input id="q" type="search" placeholder="このページ内で検索（例：花柄、レース、黒）" style="width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;margin-bottom:10px">
+  
+  <p id="hitcount" style="font-weight:700;color:var(--rose-deep);margin:8px 0"></p>
+  <div class="grid" id="grid">
+      <a class="card" data-cat="retro" data-tags="biyoshi" href="https://jp.mercari.com/item/m76430048271?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m76430048271.jpg" alt="AIVIL PRO DRYER 1200 ブラック"><div class="body"><span class="tag retro">平成レトロ・雑貨</span><h3>AIVIL PRO DRYER 1200 ブラック</h3><p class="price">¥7,500</p></div></a>
+  </div>
+  <a class="backbtn" href="index.html">← HOMEへ戻る</a>
+</main>
+<footer><div class="wrap"><p>Lea Mahalo（雑貨屋・松山市味酒町3-2-29 MAHALOビル1F）｜販売はメルカリで行っています。</p><p><a href="index.html">Lea Mahalo メルカリセレクト HOME</a></p></div></footer>
+<script>
+(function(){
+  var chara='all', q='';
+  var cards=[].slice.call(document.querySelectorAll('#grid .card'));
+  function apply(){
+    var n=0;
+    cards.forEach(function(c){
+      var okCh=(chara==='all'||c.dataset.chara===chara);
+      var okQ=(!q||c.textContent.toLowerCase().indexOf(q)>=0);
+      var show=okCh&&okQ;
+      c.style.display=show?'':'none'; if(show)n++;
+    });
+    document.getElementById('hitcount').textContent=n+'点が見つかりました';
+  }
+  document.querySelectorAll('.cchip').forEach(function(c){c.addEventListener('click',function(){
+    document.querySelectorAll('.cchip').forEach(function(x){x.classList.remove('on')});
+    c.classList.add('on'); chara=c.dataset.c; apply();
+  });});
+  document.getElementById('q').addEventListener('input',function(e){q=e.target.value.trim().toLowerCase();apply();});
+  apply();
+})();
+</script>
+</body>
+</html>
