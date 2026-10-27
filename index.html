@@ -64,8 +64,12 @@
   .feat{background:#EAF6EC;border:1.5px solid #BFE3C6;border-radius:18px;padding:18px;margin:26px 0}
   .feat h2{color:#2E7D43}
   .maker{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:18px;margin:26px 0}
-  .maker label{display:block;font-weight:800;color:var(--rose-deep);font-size:16px;margin-top:6px}
-  .maker select{width:100%;padding:15px 48px 15px 14px;border:2.5px solid var(--rose);border-radius:12px;font-size:17px;font-weight:700;color:var(--ink);margin:6px 0 14px;background-color:#fff;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 24 24'><path d='M4 8l8 8 8-8' fill='none' stroke='%23c4546d' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;background-size:24px}
+  .maker .picklabel{font-weight:800;color:var(--rose-deep);font-size:16px;margin:14px 0 4px}
+  .maker .pick{display:flex;gap:10px;overflow-x:auto;padding:8px 2px 12px;-webkit-overflow-scrolling:touch}
+  .maker .pick button{flex:0 0 104px;background:#fff;border:2.5px solid var(--line);border-radius:14px;padding:6px;cursor:pointer;text-align:center;font-family:inherit}
+  .maker .pick button img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px;display:block}
+  .maker .pick button span{display:block;font-size:11px;line-height:1.35;margin-top:5px;color:var(--ink);font-weight:700}
+  .maker .pick button.on{border-color:var(--rose);box-shadow:0 0 0 3px var(--rose-soft);background:#fff5f6}
   .maker .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .maker .pair img{width:100%;border-radius:12px;aspect-ratio:1;object-fit:cover}
   .maker .total{font-size:20px;color:var(--rose);font-weight:800;margin:10px 0}
@@ -90,10 +94,12 @@
 
   .hero-banner{width:100%;height:auto;display:block;border-radius:16px;margin-bottom:18px;border:2px solid #D98CA0;box-shadow:0 6px 18px rgba(184,74,98,.22);background:#F7D6DD}
   .slides{position:relative;width:100%;max-width:520px;margin:0 auto;aspect-ratio:4/3;overflow:hidden;border-radius:14px}
-  .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 20s infinite}
+  .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 30s infinite}
 .slides img:nth-child(2){animation-delay:5s}
 .slides img:nth-child(3){animation-delay:10s}
 .slides img:nth-child(4){animation-delay:15s}
+.slides img:nth-child(5){animation-delay:20s}
+.slides img:nth-child(6){animation-delay:25s}
   
   @keyframes fade{0%{opacity:0}6%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
   .coord img.wornimg{width:100%;display:block}
@@ -103,6 +109,17 @@
   .lcard strong{display:block;font-size:16px;color:var(--rose-deep);margin-bottom:2px}
   .lcard small{color:#7c5c62}
   .featbtn{display:inline-block;margin-top:6px;margin-right:8px;background:var(--rose);color:#fff;border-radius:999px;padding:9px 20px;font-weight:800;text-decoration:none}
+
+  .facts{display:flex;flex-wrap:wrap;gap:8px}
+  .fact{background:var(--rose-soft);color:var(--rose-deep);border-radius:999px;padding:7px 13px;font-weight:800;font-size:13px}
+  .gchip{border:1.5px solid var(--rose-soft);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+  .minicards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+  .mini{border:1.5px solid var(--line);border-radius:14px;padding:13px 14px;background:#fff}
+  .mini h3{font-size:15px;color:var(--rose-deep);margin:0 0 6px}
+  .mini p{font-size:13.5px;line-height:1.65}
+  .axbox{margin-top:12px;background:#FFF7F8;border:1.5px solid var(--rose-soft);border-radius:14px;padding:13px 14px}
+  .axbox h3{font-size:15px;color:var(--rose-deep);margin:0 0 6px}
+  .axbox p{font-size:13.5px;line-height:1.65}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Store","name":"雑貨屋 Lea Mahalo（Lea MAHALO）",
@@ -143,11 +160,17 @@
 
   <section class="maker" id="maker">
     <h2>コーデメーカー</h2>
-    <p class="seclead">メインと羽織りものを選ぶと、その場で組み合わせと合計が見られます。組み合わせは自由自在です。</p>
-    <label>メイン（ワンピース／トップス）を選ぶ<select id="selMain"></select></label>
-    <label>羽織りものを選ぶ<select id="selOuter"></select></label>
+    <p class="seclead">写真をタップして選ぶだけ。メインと羽織りものを選ぶと、その場で組み合わせと合計が見られます。生成画像のある組み合わせでは、着用イメージも出ます。</p>
+    <p class="picklabel">メイン（ワンピース／トップス）を写真で選ぶ</p>
+    <div class="pick" id="pickMain"></div>
+    <p class="picklabel">羽織りものを写真で選ぶ</p>
+    <div class="pick" id="pickOuter"></div>
     <div class="pair"><img id="imgMain" alt="メインの商品写真"><img id="imgOuter" alt="羽織りものの商品写真"></div>
     <p class="total" id="makerTotal"></p>
+    <div id="wornBox" style="display:none;margin:4px 0 12px">
+      <img id="imgWorn" alt="AI生成の着用イメージ" style="width:100%;border-radius:12px;display:block">
+      <p class="note" style="margin-top:6px">この組み合わせの着用イメージ（AI生成）です。※実際の商品とは長さや色合い等が異なる場合があります。</p>
+    </div>
     <div class="cta"><a class="btn btn-main" id="linkMain" target="_blank" rel="noopener">メインをメルカリで見る</a>
     <a class="btn btn-sub" id="linkOuter" target="_blank" rel="noopener">羽織りものをメルカリで見る</a></div>
     <p class="note">着用イメージ画像つきのコーデは下の「コーデで選ぶ」にあります。全56通りの図鑑は<a href="coords.html">コーデ図鑑</a>へ。</p>
@@ -188,7 +211,9 @@
     <h2>お店の様子</h2>
     <div class="slides">
       <img src="img/shop/interior.jpg" alt="Lea Mahalo 店内の雑貨コーナー">
+      <img src="img/shop/shelf.jpg" alt="雑貨が並ぶ店内の棚" loading="lazy">
       <img src="img/shop/goods.jpg" alt="店内の雑貨ディスプレイ" loading="lazy">
+      <img src="img/shop/display2.jpg" alt="店内の雑貨ディスプレイ（缶とフォトボックス）" loading="lazy">
       <img src="img/shop/zakka.jpg" alt="ZAKKA Lea の看板ボード" loading="lazy">
       <img src="img/shop/exterior.jpg" alt="MAHALOビルの外観" loading="lazy">
     </div>
@@ -263,7 +288,7 @@
   <section id="worn">
     <h2>着用イメージ（AI生成）</h2>
     <p class="seclead">実際に合わせたらこんな感じ、をAIで生成した着用イメージです。柄やデザインの雰囲気の参考にしてください。<strong>※イメージ画像のため、実際の商品とは長さや色合い等が異なる場合があります。</strong>正確な仕様は各メルカリページの実物写真と商品説明でご確認ください。</p>
-<figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn1-ai.jpg" alt="AI生成の着用イメージ 花柄ワンピース × レースボレロ" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>花柄ワンピース × レースボレロ</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m71573382172?afid=8912821522" target="_blank" rel="noopener">花柄ワンピース ¥2,300</a> ・ <a href="https://jp.mercari.com/item/m71930174042?afid=8912821522" target="_blank" rel="noopener">レースボレロ ¥2,600</a></figcaption></figure><figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn3-ai.jpg" alt="AI生成の着用イメージ ボルドーワンピース × 黒レースパーカー" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>ボルドーワンピース × 黒レースパーカー</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m33906074753?afid=8912821522" target="_blank" rel="noopener">フード付きワンピース ボルドー ¥2,700</a> ・ <a href="https://jp.mercari.com/item/m49278986130?afid=8912821522" target="_blank" rel="noopener">レースパーカー 黒 ¥2,700</a></figcaption></figure><figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn4-ai.jpg" alt="AI生成の着用イメージ ストライプワンピース × レースカーディガン" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>ストライプワンピース × レースカーディガン</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m95500551107?afid=8912821522" target="_blank" rel="noopener">ストライプ ノースリーブワンピース ¥2,700</a> ・ <a href="https://jp.mercari.com/item/m66770811835?afid=8912821522" target="_blank" rel="noopener">レースカーディガン ¥2,600</a></figcaption></figure><figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn-d3-ai.jpg" alt="AI生成の着用イメージ 花柄キャミワンピース × 黒レースカーディガン" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>花柄キャミワンピース × 黒レースカーディガン</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m80331956211?afid=8912821522" target="_blank" rel="noopener">花柄キャミワンピース ¥4,000</a> ・ <a href="https://jp.mercari.com/item/m53429015659?afid=8912821522" target="_blank" rel="noopener">レースカーディガン 黒 ¥1,600</a></figcaption></figure>  </section>
+<figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn1-ai.jpg" alt="AI生成の着用イメージ 花柄ワンピース × レースボレロ" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>花柄ワンピース × レースボレロ</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m71573382172?afid=8912821522" target="_blank" rel="noopener">花柄ワンピース ¥2,300</a> ・ <a href="https://jp.mercari.com/item/m71930174042?afid=8912821522" target="_blank" rel="noopener">レースボレロ ¥2,600</a></figcaption></figure><figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn3-ai.jpg" alt="AI生成の着用イメージ ボルドーワンピース × 黒レースパーカー" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>ボルドーワンピース × 黒レースパーカー</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m33906074753?afid=8912821522" target="_blank" rel="noopener">フード付きワンピース ボルドー ¥2,700</a> ・ <a href="https://jp.mercari.com/item/m49278986130?afid=8912821522" target="_blank" rel="noopener">レースパーカー 黒 ¥2,700</a></figcaption></figure><figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn4-ai.jpg" alt="AI生成の着用イメージ ストライプワンピース × レースカーディガン" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>ストライプワンピース × レースカーディガン</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m95500551107?afid=8912821522" target="_blank" rel="noopener">ストライプ ノースリーブワンピース ¥2,700</a> ・ <a href="https://jp.mercari.com/item/m66770811835?afid=8912821522" target="_blank" rel="noopener">レースカーディガン ¥2,600</a></figcaption></figure><figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn-d3-ai.jpg" alt="AI生成の着用イメージ 花柄キャミワンピース × 黒レースカーディガン" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>花柄キャミワンピース × 黒レースカーディガン</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m80331956211?afid=8912821522" target="_blank" rel="noopener">花柄キャミワンピース ¥4,000</a> ・ <a href="https://jp.mercari.com/item/m53429015659?afid=8912821522" target="_blank" rel="noopener">レースカーディガン 黒 ¥1,600</a></figcaption></figure><figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn5-ai.jpg" alt="AI生成の着用イメージ 半袖ワンピース × レースボレロ" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>半袖ワンピース × レースボレロ</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m51129588350?afid=8912821522" target="_blank" rel="noopener">半袖ワンピース ¥3,700</a> ・ <a href="https://jp.mercari.com/item/m71930174042?afid=8912821522" target="_blank" rel="noopener">レースボレロ ¥2,600</a></figcaption></figure><figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn6-ai.jpg" alt="AI生成の着用イメージ 花柄ストライプワンピース × 黒レースカーディガン" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>花柄ストライプワンピース × 黒レースカーディガン</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m29930914754?afid=8912821522" target="_blank" rel="noopener">花柄ストライプ 半袖ワンピース ¥2,300</a> ・ <a href="https://jp.mercari.com/item/m53429015659?afid=8912821522" target="_blank" rel="noopener">レースカーディガン 黒 ¥1,600</a></figcaption></figure><figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn7-ai.jpg" alt="AI生成の着用イメージ 花柄ワンピース × 黒レースパーカー" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>花柄ワンピース × 黒レースパーカー</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m71573382172?afid=8912821522" target="_blank" rel="noopener">花柄ワンピース ¥2,300</a> ・ <a href="https://jp.mercari.com/item/m49278986130?afid=8912821522" target="_blank" rel="noopener">レースパーカー 黒 ¥2,700</a></figcaption></figure><figure style="margin:0 0 18px;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden"><img loading="lazy" src="img/worn/worn8-ai.jpg" alt="AI生成の着用イメージ 花柄キャミワンピース × レースボレロ" style="width:100%;display:block"><figcaption style="padding:12px 14px;font-size:14px"><strong>花柄キャミワンピース × レースボレロ</strong>（AI生成イメージ）<br><a href="https://jp.mercari.com/item/m80331956211?afid=8912821522" target="_blank" rel="noopener">花柄キャミワンピース ¥4,000</a> ・ <a href="https://jp.mercari.com/item/m71930174042?afid=8912821522" target="_blank" rel="noopener">レースボレロ ¥2,600</a></figcaption></figure>  </section>
 
   <section id="coord">
     <h2>コーデで選ぶ</h2>
@@ -345,11 +370,21 @@
 <section>
     <h2>Lea Mahalo について</h2>
     <div class="about">
-      <p>Lea Mahalo は、松山市味酒町の MAHALO美容室 1階奥にある雑貨屋です（2011年オープン）。輸入雑貨・ローズ雑貨・アメリカン雑貨、子供服など、いろんなジャンルを扱ってきました。</p>
-      <p style="margin-top:8px">メルカリでは主に、B品・廃盤・ヴィンテージのレア品を出品しています。新品でも箱なし・小さな訳ありがある分、お値段を下げて販売しています。中古品・訳あり品であることをご理解のうえ、商品ページの説明をよく読んでご購入ください。</p>
-      <p style="margin-top:8px">実店舗と在庫を共有しているため、売り切れの際はご容赦ください。ご質問はメルカリの商品ページからお気軽にどうぞ。</p>
-      <p style="margin-top:8px">お店はいつもは開いていないため、来店は予約制の「レアなお店」です。店舗での購入もできます。来店希望はメルカリのコメントでお知らせください。</p>
-      <p style="margin-top:8px">アクシーズファムは、生産終了した昔のデザインを探す方が多いブランドです。15年分の在庫の中から、今では手に入りにくいデザインも出品しています。</p>
+      <div class="facts">
+        <span class="fact">📍 松山市味酒町 MAHALO美容室 1F奥</span>
+        <span class="fact">🗓 2011年オープン</span>
+        <span class="fact">🔑 来店は予約制の「レアなお店」</span>
+      </div>
+      <p style="margin-top:10px">扱ってきたジャンル</p>
+      <div class="facts">
+        <span class="gchip">輸入雑貨</span><span class="gchip">ローズ雑貨</span><span class="gchip">アメリカン雑貨</span><span class="gchip">子供服</span><span class="gchip">ほかいろいろ</span>
+      </div>
+      <div class="minicards">
+        <div class="mini"><h3>💎 メルカリの出品</h3><p>主に、B品・廃盤・ヴィンテージのレア品を出品しています。新品でも箱なし・小さな訳ありがある分、お値段を下げて販売しています。</p></div>
+        <div class="mini"><h3>⚠️ ご購入前に</h3><p>中古品・訳あり品であることをご理解のうえ、商品ページの説明をよく読んでご購入ください。実店舗と在庫を共有しているため、売り切れの際はご容赦ください。</p></div>
+        <div class="mini"><h3>🏠 レアなお店</h3><p>お店はいつもは開いていません。来店は予約制で、店舗での購入もできます。ご質問・来店希望はメルカリの商品ページのコメントでお気軽にどうぞ。</p></div>
+      </div>
+      <div class="axbox"><h3>🌸 アクシーズファム</h3><p>生産終了した昔のデザインを探す方が多いブランドです。15年分の在庫の中から、今では手に入りにくいデザインも出品しています。</p></div>
     </div>
   </section>
 </div>
@@ -460,19 +495,32 @@
     ['m49278986130','レースパーカー 黒',2700],['m71930174042','レースボレロ',2600],
     ['m66770811835','レースカーディガン',2600],['m53429015659','レースカーディガン 黒',1600]];
   function thumb(id){return 'img/items/'+id+'.jpg';}
-  var sm=document.getElementById('selMain'), so=document.getElementById('selOuter');
-  MAINS.forEach(function(m,i){var o=document.createElement('option');o.value=i;o.textContent=m[1]+' '+yen(m[2]);sm.appendChild(o);});
-  OUTERS.forEach(function(m,i){var o=document.createElement('option');o.value=i;o.textContent=m[1]+' '+yen(m[2]);so.appendChild(o);});
+  var WORN={'m71573382172+m71930174042':'img/worn/worn1-ai.jpg','m33906074753+m49278986130':'img/worn/worn3-ai.jpg','m95500551107+m66770811835':'img/worn/worn4-ai.jpg','m80331956211+m53429015659':'img/worn/worn-d3-ai.jpg','m51129588350+m71930174042':'img/worn/worn5-ai.jpg','m29930914754+m53429015659':'img/worn/worn6-ai.jpg','m71573382172+m49278986130':'img/worn/worn7-ai.jpg','m80331956211+m71930174042':'img/worn/worn8-ai.jpg'};
+  var selM=0, selO=1;
+  function buildPick(elId, arr, isMain){
+    var el=document.getElementById(elId);
+    arr.forEach(function(m,i){
+      var b=document.createElement('button'); b.type='button';
+      b.innerHTML='<img loading="lazy" src="'+thumb(m[0])+'" alt="'+m[1]+'"><span>'+m[1]+'<br>'+yen(m[2])+'</span>';
+      b.addEventListener('click',function(){ if(isMain) selM=i; else selO=i; updMaker(); });
+      el.appendChild(b);
+    });
+  }
+  buildPick('pickMain', MAINS, true); buildPick('pickOuter', OUTERS, false);
+  function markPick(elId, idx){ [].slice.call(document.getElementById(elId).children).forEach(function(b,i){ b.classList.toggle('on', i===idx); }); }
   function updMaker(){
-    var a=MAINS[sm.value], b=OUTERS[so.value];
+    var a=MAINS[selM], b=OUTERS[selO];
+    markPick('pickMain', selM); markPick('pickOuter', selO);
     document.getElementById('imgMain').src=thumb(a[0]);
     document.getElementById('imgOuter').src=thumb(b[0]);
     document.getElementById('makerTotal').textContent=a[1]+' × '+b[1]+' ＝ 2点合計 '+yen(a[2]+b[2]);
+    var w=WORN[a[0]+'+'+b[0]], wb=document.getElementById('wornBox');
+    if(w){ document.getElementById('imgWorn').src=w; wb.style.display='block'; } else { wb.style.display='none'; }
     document.getElementById('linkMain').href='https://jp.mercari.com/item/'+a[0]+AF;
     document.getElementById('linkOuter').href='https://jp.mercari.com/item/'+b[0]+AF;
     track('coord_make', a[1]+' x '+b[1]);
   }
-  sm.addEventListener('change',updMaker); so.addEventListener('change',updMaker); updMaker();
+  updMaker();
   /* ---- チャットボット ---- */
   var panel=document.getElementById('botPanel'), log=document.getElementById('botLog');
   function addMsg(cls,text){
