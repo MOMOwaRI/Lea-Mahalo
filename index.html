@@ -504,8 +504,27 @@
   var PROFILE='https://jp.mercari.com/user/profile/256767561'+AF;
   var lastTopic='';
   function BTN(href,label,cls){ return '<br><a class="bgo'+(cls?' '+cls:'')+'" href="'+href+'"'+(href.charAt(0)==='#'?'':' target="_blank" rel="noopener"')+'>'+label+'</a>'; }
+  function topicOf(t){
+    if(/マイクラ|マインクラフト/.test(t))return 'マイクラ';
+    if(/ポケモン/.test(t))return 'ポケモン';
+    if(/犬夜叉/.test(t))return '犬夜叉';
+    if(/アンパンマン/.test(t))return 'アンパンマン';
+    if(/リラックマ/.test(t))return 'リラックマ';
+    if(/グルーミー/.test(t))return 'グルーミー';
+    if(/ディズニー/.test(t))return 'ディズニー';
+    if(/まとめ|同梱|セット|複数/.test(t))return 'まとめ買い';
+    if(/探し|探して|リクエスト|代行|欲しい|ほしい/.test(t))return '探し代行';
+    if(/送料/.test(t))return '送料';
+    if(/コーデ|組み合わせ|着用/.test(t))return 'コーデ';
+    if(/予約|来店|店舗|店で買|店舗で買/.test(t))return '来店・店舗購入';
+    if(/axes|アクシーズ/.test(t))return 'axes femme';
+    if(/場所|住所|どこ|アクセス/.test(t))return '場所';
+    if(/安い|セール|値段|価格|いくら/.test(t))return '価格・セール';
+    if(/営業|時間|いつ/.test(t))return '営業時間';
+    return 'その他・答えられなかった';
+  }
   function answer(t){
-    track('bot_q', t.slice(0,40));
+    track('bot_q', topicOf(t));
     if(/マイクラ|マインクラフト/.test(t)) return 'マイクラ特集があります。ぬいぐるみ、クッション、リュック、プールバッグの4点をこのページの「マイクラ特集」にまとめています。在庫はメルカリ側の表示が最新です。'+BTN('#minecraft','マイクラ特集へ行く');
     if(/ポケモン/.test(t)) return 'ポケモンはドンジャラとアニメ超ひゃっか（平成レトロ）があります。上のキャラチップ「ポケモン」で絞り込めます。';
     if(/犬夜叉/.test(t)) return '犬夜叉はフィギュア4体セットと画集35周年うちわがあります。キャラチップ「犬夜叉」で絞り込めます。';
