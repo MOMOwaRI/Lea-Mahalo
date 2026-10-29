@@ -3,8 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ワンピース｜Lea Mahalo メルカリセレクト</title><link rel="canonical" href="https://momowari.github.io/Lea-Mahalo/onepiece.html"><link rel="icon" type="image/png" sizes="512x512" href="favicon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>ワンピース｜Lea Mahalo メルカリセレクト</title>
 <meta name="description" content="axes femmeを中心としたワンピースの一覧です。昔のデザイン・生産終了品も多くあります。">
+<meta property="og:title" content="ワンピース｜Lea Mahalo メルカリセレクト">
+<meta property="og:description" content="axes femmeを中心としたワンピースの一覧です。昔のデザイン・生産終了品も多くあります。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://momowari.github.io/Lea-Mahalo/img/shop/corner.jpg">
+<link rel="canonical" href="https://momowari.github.io/Lea-Mahalo/onepiece.html">
+<link rel="icon" href="favicon.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-37XWEHVXPX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-37XWEHVXPX');</script>
 <style>
   :root{--ivory:#FFF9F3;--rose:#E38CA0;--rose-deep:#B84A62;--rose-soft:#FBE9EE;--mint:#9CC5A1;--ink:#4A3338;--gold:#C9A227}
   *{box-sizing:border-box;margin:0;padding:0}
@@ -63,7 +71,12 @@
   .feat{background:#EAF6EC;border:1.5px solid #BFE3C6;border-radius:18px;padding:18px;margin:26px 0}
   .feat h2{color:#2E7D43}
   .maker{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:18px;margin:26px 0}
-  .maker select{width:100%;padding:11px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;margin:6px 0 12px;background:#fff}
+  .maker .picklabel{font-weight:800;color:var(--rose-deep);font-size:16px;margin:14px 0 4px}
+  .maker .pick{display:flex;gap:10px;overflow-x:auto;padding:8px 2px 12px;-webkit-overflow-scrolling:touch}
+  .maker .pick button{flex:0 0 104px;background:#fff;border:2.5px solid var(--line);border-radius:14px;padding:6px;cursor:pointer;text-align:center;font-family:inherit}
+  .maker .pick button img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px;display:block}
+  .maker .pick button span{display:block;font-size:11px;line-height:1.35;margin-top:5px;color:var(--ink);font-weight:700}
+  .maker .pick button.on{border-color:var(--rose);box-shadow:0 0 0 3px var(--rose-soft);background:#fff5f6}
   .maker .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .maker .pair img{width:100%;border-radius:12px;aspect-ratio:1;object-fit:cover}
   .maker .total{font-size:20px;color:var(--rose);font-weight:800;margin:10px 0}
@@ -88,17 +101,40 @@
 
   .hero-banner{width:100%;height:auto;display:block;border-radius:16px;margin-bottom:18px;border:2px solid #D98CA0;box-shadow:0 6px 18px rgba(184,74,98,.22);background:#F7D6DD}
   .slides{position:relative;width:100%;max-width:520px;margin:0 auto;aspect-ratio:4/3;overflow:hidden;border-radius:14px}
-  .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 40s infinite}
+  .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:fade 35s infinite}
 .slides img:nth-child(2){animation-delay:5s}
 .slides img:nth-child(3){animation-delay:10s}
 .slides img:nth-child(4){animation-delay:15s}
 .slides img:nth-child(5){animation-delay:20s}
 .slides img:nth-child(6){animation-delay:25s}
 .slides img:nth-child(7){animation-delay:30s}
-.slides img:nth-child(8){animation-delay:35s}
   
   @keyframes fade{0%{opacity:0}6%{opacity:1}33%{opacity:1}39%{opacity:0}100%{opacity:0}}
   .coord img.wornimg{width:100%;display:block}
+
+  .linkcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  .lcard{display:block;background:#fff;border:2px solid var(--rose-soft);border-radius:14px;padding:14px 12px;text-decoration:none;color:var(--ink)}
+  .lcard strong{display:block;font-size:16px;color:var(--rose-deep);margin-bottom:2px}
+  .lcard small{color:#7c5c62}
+  .featbtn{display:inline-block;margin-top:6px;margin-right:8px;background:var(--rose);color:#fff;border-radius:999px;padding:9px 20px;font-weight:800;text-decoration:none}
+
+  .facts{display:flex;flex-wrap:wrap;gap:8px}
+  .fact{background:var(--rose-soft);color:var(--rose-deep);border-radius:999px;padding:7px 13px;font-weight:800;font-size:13px}
+  .gchip{border:1.5px solid var(--rose-soft);color:var(--ink);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+  .minicards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:12px}
+  .mini{border:1.5px solid var(--line);border-radius:14px;padding:13px 14px;background:#fff}
+  .mini h3{font-size:15px;color:var(--rose-deep);margin:0 0 6px}
+  .mini p{font-size:13.5px;line-height:1.65}
+  .axbox{margin-top:12px;background:#FFF7F8;border:1.5px solid var(--rose-soft);border-radius:14px;padding:13px 14px}
+  .axbox h3{font-size:15px;color:var(--rose-deep);margin:0 0 6px}
+  .axbox p{font-size:13.5px;line-height:1.65}
+
+  .coord .pair2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+  .coord .pair2 a{display:block;text-decoration:none;color:var(--ink)}
+  .coord .pair2 img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block}
+  .coord .pair2 span{display:block;font-size:12.5px;font-weight:700;margin-top:5px;line-height:1.4}
+  .coord a.wornlink{display:block}
+  a.chip{display:inline-block;text-decoration:none;color:var(--rose-deep)}
 
   .pagehead{background:linear-gradient(135deg,#FDEDF1,#FFF9F3 60%);border-bottom:2px solid var(--rose-soft);padding:22px 0 14px;text-align:center}
   .pagehead h1{font-size:26px;color:var(--rose-deep)}
@@ -109,37 +145,24 @@
   .lcard small{color:#7c5c62}
   .featbtn{display:inline-block;margin-top:10px;background:var(--rose);color:#fff;border-radius:999px;padding:9px 20px;font-weight:800;text-decoration:none}
 </style>
-<style>
-/* PCはスマホ幅で表示 */
-@media (min-width:520px){
-  html{background:#F5E1E6}
-  body{max-width:720px;margin:0 auto;box-shadow:0 0 24px rgba(168,62,88,.18)}
-  #botBtn,#botPanel{right:calc(50% - 344px)}
-}
-</style>
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Lea Mahalo">
-<meta property="og:title" content="ワンピース｜Lea Mahalo メルカリセレクト">
-<meta property="og:description" content="松山市味酒町の雑貨屋Lea Mahaloのメルカリ出品中アイテムをまとめたページ。axes femmeなどのレディース服、レトロ雑貨、ベビー用品など。在庫確認はメルカリのコメントから。">
-<meta property="og:url" content="https://momowari.github.io/Lea-Mahalo/onepiece.html">
-<meta property="og:image" content="https://momowari.github.io/Lea-Mahalo/img/shop/corner.jpg">
-<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <header class="pagehead"><div class="wrap"><p style="font-weight:800;color:var(--rose)">雑貨屋 Lea Mahalo（松山市）</p><h1>ワンピース</h1><p class="seclead">axes femmeを中心としたワンピースの一覧です。昔のデザイン・生産終了品も多くあります。</p></div></header>
 <main class="wrap">
   <a class="backbtn" href="index.html">← HOMEへ戻る</a>
-  <p class="note">ご購入前に、必ず<strong>在庫確認コメント</strong>をお願いします（必須）。実店舗と在庫を共有しているため、確認なしのご購入はキャンセルをお願いする場合があります。価格・在庫はメルカリ側の表示が最新です。</p>
+  <p class="note">ご購入前に、必ず<strong>在庫確認コメント</strong>をお願いします（必須）。実店舗と在庫を共有しているため、確認なしのご購入はキャンセルをお願いする場合があります。価格・在庫はメルカリ側の表示が最新です。気になる商品は「カゴに入れる」でまとめておけます。</p>
   <input id="q" type="search" placeholder="このページ内で検索（例：花柄、レース、黒）" style="width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;margin-bottom:10px">
   
   <p id="hitcount" style="font-weight:700;color:var(--rose-deep);margin:8px 0"></p>
   <div class="grid" id="grid">
-      <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m71573382172?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m71573382172.jpg" alt="axes femme 花柄ストライプ 半袖ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 花柄ストライプ 半袖ワンピース</h3><p class="price">¥2,300 <small>送料込み目安は商品ページで</small></p></div></a>
-      <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m51129588350?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m51129588350.jpg" alt="axes femme 半袖ひざ丈ワンピース ブラック/チェック"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 半袖ひざ丈ワンピース ブラック/チェック</h3><p class="price">¥3,300</p></div></a>
-      <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m80331956211?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m80331956211.jpg" alt="axes ノースリーブ 花柄 キャミワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes ノースリーブ 花柄 キャミワンピース</h3><p class="price">¥4,000</p></div></a>
+      <a class="card" data-cat="onepiece" data-tags="lolita" href="https://jp.mercari.com/item/m73125597720?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m73125597720.jpg" alt="Majoretty 長袖ワンピース ブラック ホワイト"><div class="body"><span class="tag">ワンピース</span><h3>Majoretty 長袖ワンピース ブラック ホワイト</h3><p class="price">¥2,600</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european lolita" href="https://jp.mercari.com/item/m33906074753?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m33906074753.jpg" alt="axes femme フード付き半袖ワンピース ボルドー"><div class="body"><span class="tag">ワンピース</span><h3>axes femme フード付き半袖ワンピース ボルドー</h3><p class="price">¥2,700</p></div></a>
-      <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m95500551107?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m95500551107.jpg" alt="axes femme ストライプレースノースリーブワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme ストライプレースノースリーブワンピース</h3><p class="price">¥2,700</p></div></a>
+      <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m80331956211?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m80331956211.jpg" alt="axes ノースリーブ 花柄 キャミワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes ノースリーブ 花柄 キャミワンピース</h3><p class="price">¥4,000</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m29930914754?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m29930914754.jpg" alt="axes femme 半袖ワンピース（白・レース襟）"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 半袖ワンピース（白・レース襟）</h3><p class="price">¥3,700</p></div></a>
+      <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m95500551107?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m95500551107.jpg" alt="axes femme ストライプレースノースリーブワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme ストライプレースノースリーブワンピース</h3><p class="price">¥2,700</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m40115568215?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m40115568215_1.jpg" alt="ALGONQINS赤と黒のストライプ ノースリーブワンピース"><div class="body"><span class="tag">ワンピース</span><h3>ALGONQINS赤と黒のストライプ ノースリーブワンピース</h3><p class="price">¥4,800</p></div></a>
+      <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m51129588350?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m51129588350.jpg" alt="axes femme 半袖ひざ丈ワンピース ブラック/チェック"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 半袖ひざ丈ワンピース ブラック/チェック</h3><p class="price">¥3,300</p></div></a>
+      <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m71573382172?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m71573382172.jpg" alt="axes femme 花柄ストライプ 半袖ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 花柄ストライプ 半袖ワンピース</h3><p class="price">¥2,300 <small>送料込み目安は商品ページで</small></p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m83698379129?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m83698379129.jpg" alt="GRL 花柄 半袖 ロングワンピース"><div class="body"><span class="tag">ワンピース</span><h3>GRL 花柄 半袖 ロングワンピース</h3><p class="price">¥1,800</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m41037757497?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m41037757497.jpg" alt="axes femme フラワープリント 半袖ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme フラワープリント 半袖ワンピース</h3><p class="price">¥3,400</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m19693249012?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m19693249012.jpg" alt="JXS 花柄幾何学模様 半袖ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>JXS 花柄幾何学模様 半袖ワンピース</h3><p class="price">¥3,500</p></div></a>
@@ -147,21 +170,40 @@
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m83317859207?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m83317859207.jpg" alt="axes femme 花柄シャツワンピース 半袖 グレー系"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 花柄シャツワンピース 半袖 グレー系</h3><p class="price">¥2,800</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m83786604825?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m83786604825.jpg" alt="axes femme 花柄 長袖ひざ丈ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 花柄 長袖ひざ丈ワンピース</h3><p class="price">¥2,900</p></div></a>
       <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m81053088954?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m81053088954.jpg" alt="OLIVE des OLIVE 黒 膝丈ワンピース F"><div class="body"><span class="tag">ワンピース</span><h3>OLIVE des OLIVE 黒 膝丈ワンピース F</h3><p class="price">¥2,000</p></div></a>
-      <a class="card" data-cat="onepiece" data-tags="lolita" href="https://jp.mercari.com/item/m73125597720?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m73125597720.jpg" alt="Majoretty 長袖ワンピース ブラック ホワイト"><div class="body"><span class="tag">ワンピース</span><h3>Majoretty 長袖ワンピース ブラック ホワイト</h3><p class="price">¥2,600</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m75986323798?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m75986323798.jpg" alt="axes femme グレー キャミワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme グレー キャミワンピース</h3><p class="price">¥2,200</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m49214196803?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m49214196803.jpg" alt="axes femme グレー 七分袖ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme グレー 七分袖ワンピース</h3><p class="price">¥2,300</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m14070434845?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m14070434845.jpg" alt="axes femme グレー ワンピース 五分袖"><div class="body"><span class="tag">ワンピース</span><h3>axes femme グレー ワンピース 五分袖</h3><p class="price">¥1,900</p></div></a>
-      <a class="card" data-cat="onepiece" data-tags="lolita european" href="https://jp.mercari.com/item/m94871340417?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m94871340417.jpg" alt="axes femme ブラック ノースリーブワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme ブラック ノースリーブワンピース</h3><p class="price">¥2,800</p></div></a>
+      <a class="card" data-cat="onepiece" data-tags="european lolita" href="https://jp.mercari.com/item/m94871340417?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m94871340417.jpg" alt="axes femme ブラック ノースリーブワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme ブラック ノースリーブワンピース</h3><p class="price">¥2,800</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m74160087785?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m74160087785.jpg" alt="axes femme 半袖ひざ丈ワンピース ピンク"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 半袖ひざ丈ワンピース ピンク</h3><p class="price">¥2,100</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m40551391013?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m40551391013.jpg" alt="axes femme 花柄ノースリーブワンピース ベージュ Mサイズ"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 花柄ノースリーブワンピース ベージュ Mサイズ</h3><p class="price">¥2,300</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m66439780648?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m66439780648.jpg" alt="axes ネイビー 花柄 半袖ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes ネイビー 花柄 半袖ワンピース</h3><p class="price">¥2,100</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m21584668146?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m21584668146.jpg" alt="axes femme 花柄 半袖 ひざ丈ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 花柄 半袖 ひざ丈ワンピース</h3><p class="price">¥2,700</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m17914076262?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m17914076262.jpg" alt="axes femme ダークブラウン ワンピース M"><div class="body"><span class="tag">ワンピース</span><h3>axes femme ダークブラウン ワンピース M</h3><p class="price">¥2,300</p></div></a>
       <a class="card" data-cat="onepiece" data-tags="european" href="https://jp.mercari.com/item/m96068070438?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m96068070438.jpg" alt="axes femme ブラウンニット ロングワンピース M"><div class="body"><span class="tag">ワンピース</span><h3>axes femme ブラウンニット ロングワンピース M</h3><p class="price">¥2,500</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m34273850747?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m34273850747_1.jpg" alt="axes femmeフラワープリント ノースリーブワンピース M"><div class="body"><span class="tag">ワンピース</span><h3>axes femmeフラワープリント ノースリーブワンピース M</h3><p class="price">¥2,300</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m25764809375?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m25764809375_1.jpg" alt="axes femmeノースリーブ花柄ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femmeノースリーブ花柄ワンピース</h3><p class="price">¥2,322</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m58238582555?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m58238582555_1.jpg" alt="axes femmeアイボリー ノースリーブ ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femmeアイボリー ノースリーブ ワンピース</h3><p class="price">¥2,600</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m77017259435?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m77017259435_1.jpg" alt="axes femmeビーズ装飾ラメ付きノースリーブワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femmeビーズ装飾ラメ付きノースリーブワンピース</h3><p class="price">¥3,200</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m15619914427?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m15619914427_1.jpg" alt="axes femmeノースリーブ花柄ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femmeノースリーブ花柄ワンピース</h3><p class="price">¥3,000</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m23451144587?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m23451144587_1.jpg" alt="axes femme ストライプ ノースリーブワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme ストライプ ノースリーブワンピース</h3><p class="price">¥2,400</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m82296387326?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m82296387326_1.jpg" alt="axes 花柄 長袖ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes 花柄 長袖ワンピース</h3><p class="price">¥4,500</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m98286845459?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m98286845459_1.jpg" alt="axes femmeレース襟付きフラワープリントワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femmeレース襟付きフラワープリントワンピース</h3><p class="price">¥2,100</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m64061144669?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m64061144669_1.jpg" alt="axes femmeラベンダー ロングスリーブ ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femmeラベンダー ロングスリーブ ワンピース</h3><p class="price">¥3,600</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m81526422605?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m81526422605_1.jpg" alt="axes femme 重ね着:ブラウン 長袖インナーワンピース フリル付き"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 重ね着:ブラウン 長袖インナーワンピース フリル付き</h3><p class="price">¥2,500</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m21322953669?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m21322953669_1.jpg" alt="axes femme 花柄ノースリーブワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 花柄ノースリーブワンピース</h3><p class="price">¥3,700</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m45198184468?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m45198184468_1.jpg" alt="axes femme 花柄ノースリーブワンピース"><div class="body"><span class="tag">ワンピース</span><h3>axes femme 花柄ノースリーブワンピース</h3><p class="price">¥2,600</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m48291089709?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m48291089709_1.jpg" alt="7着ワンピース★夏服★猫柄ほか7着まとめ売り"><div class="body"><span class="tag">ワンピース</span><h3>7着ワンピース★夏服★猫柄ほか7着まとめ売り</h3><p class="price">¥5,555</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m24570805507?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m24570805507_1.jpg" alt="アクシーズファムワンピース"><div class="body"><span class="tag">ワンピース</span><h3>アクシーズファムワンピース</h3><p class="price">¥2,300</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m99439784783?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m99439784783_1.jpg" alt="半袖ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>半袖ワンピース</h3><p class="price">¥3,100</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m79788825503?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m79788825503_1.jpg" alt="ドッキングワンピース"><div class="body"><span class="tag">ワンピース</span><h3>ドッキングワンピース</h3><p class="price">¥3,800</p></div></a>
+      <a class="card" data-cat="onepiece" data-tags="heisei" href="https://jp.mercari.com/item/m28395940762?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m28395940762_1.jpg" alt="ワンピース風　昭和ちっく　レトロ　分厚い生地"><div class="body"><span class="tag">ワンピース</span><h3>ワンピース風　昭和ちっく　レトロ　分厚い生地</h3><p class="price">¥1,100</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m93474143226?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m93474143226_1.jpg" alt="ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>ワンピース</h3><p class="price">¥2,700</p></div></a>
+      <a class="card" data-cat="onepiece" href="https://jp.mercari.com/item/m12382218650?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m12382218650_1.jpg" alt="ワンピース"><div class="body"><span class="tag">ワンピース</span><h3>ワンピース</h3><p class="price">¥2,500</p></div></a>
   </div>
   <a class="backbtn" href="index.html">← HOMEへ戻る</a>
 </main>
 <footer><div class="wrap"><p>Lea Mahalo（雑貨屋・松山市味酒町3-2-29 MAHALOビル1F）｜販売はメルカリで行っています。</p><p><a href="index.html">Lea Mahalo メルカリセレクト HOME</a></p></div></footer>
+
 <script>
 (function(){
   var chara='all', q='';
@@ -184,5 +226,120 @@
   apply();
 })();
 </script>
+<!--LEA_CART-->
+<style>
+  .addbtn{display:block;width:100%;margin-top:8px;background:var(--rose);color:#fff;border:2px solid var(--rose);border-radius:999px;padding:8px 0;font-size:14px;font-weight:800;cursor:pointer}
+  .addbtn.in{background:#fff;color:var(--rose-deep)}
+  #cartbar{position:fixed;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:720px;z-index:55;background:#fff;border-top:2px solid var(--rose-soft);box-shadow:0 -6px 18px rgba(120,50,65,.15);padding:10px 14px;display:none;align-items:center;gap:10px}
+  #cartbar.on{display:flex}
+  .cartbar-cnt{font-weight:800;color:var(--rose-deep);white-space:nowrap}
+  .cartbar-tot{font-weight:800;white-space:nowrap}
+  .cartbar-tot small{display:block;font-weight:400;font-size:11px;color:#7c5c62}
+  .cartbar-go{margin-left:auto;background:var(--rose);color:#fff;border:none;border-radius:999px;padding:11px 18px;font-size:15px;font-weight:800;cursor:pointer;white-space:nowrap}
+  body.cart-on #botBtn{bottom:84px}
+  body.cart-on #botPanel{bottom:144px}
+  #cartPanel{position:fixed;inset:0;z-index:80;background:rgba(60,20,30,.45);display:none;align-items:flex-end;justify-content:center}
+  #cartPanel.open{display:flex}
+  .cart-box{background:#fff;width:100%;max-width:720px;max-height:88vh;overflow-y:auto;border-radius:20px 20px 0 0;padding:18px 16px 26px}
+  .cart-h2{font-size:20px;color:var(--rose-deep);margin-bottom:6px}
+  .crow{display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding:10px 0}
+  .crow-img{width:56px;height:56px;object-fit:cover;border-radius:10px}
+  .crow-ti{flex:1;font-size:14px}
+  .crow-pr{font-weight:800;white-space:nowrap}
+  .crow-rm{background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:5px 10px;font-size:12px;cursor:pointer;white-space:nowrap}
+  .crow-lk{font-size:12px;color:var(--rose-deep)}
+  .cart-sum{font-size:17px;font-weight:800;text-align:right;margin:12px 0 4px}
+  .cart-note2{font-size:13px;color:#7c5c62;margin:6px 0}
+  .cbtn{display:block;width:100%;text-align:center;border-radius:999px;padding:13px 0;font-size:15px;font-weight:800;margin-top:10px;cursor:pointer;text-decoration:none}
+  .cbtn.main{background:var(--rose);color:#fff;border:2px solid var(--rose)}
+  .cbtn.sub{background:#fff;color:var(--rose-deep);border:2px solid var(--rose)}
+  .cbtn.ghost{background:#fff;color:#7c5c62;border:1.5px solid var(--line);font-size:13px;padding:10px 0}
+  #cartToast{position:fixed;left:50%;transform:translateX(-50%);bottom:90px;z-index:90;background:#4a2b33;color:#fff;border-radius:999px;padding:10px 18px;font-size:14px;display:none;max-width:92vw;text-align:center}
+</style>
+<div id="cartbar"><span class="cartbar-cnt">🧺 <span id="cartCount">0</span>点</span><span class="cartbar-tot"><span id="cartTotal">¥0</span><small>商品代金の合計</small></span><button class="cartbar-go" id="cartOpen">カゴを見る</button></div>
+<div id="cartPanel"><div class="cart-box">
+  <h2 class="cart-h2">買い物かご</h2>
+  <p class="cart-note2">気になる商品をまとめておけるカゴです。実際のご購入はメルカリで行います。</p>
+  <div id="cartList"></div>
+  <p class="cart-sum">合計（商品代金） <span id="cartSum">¥0</span></p>
+  <p class="cart-note2">※送料は商品ごとに異なります。各商品のメルカリページでご確認ください。</p>
+  <p class="cart-note2"><strong>ご購入前に、必ず在庫確認をお願いします。</strong>実店舗と在庫を共有しているため、確認なしのご購入はキャンセルをお願いする場合があります。同梱・まとめ買いのご相談もこちらからどうぞ。</p>
+  <p class="cart-note2">メルカリでのご購入が難しい方や、直接購入をご希望の方も、フォームからご相談ください。</p>
+  <a class="cbtn main" id="cartForm" href="#" target="_blank" rel="noopener">同梱・まとめ買いの相談を送る（フォーム）</a>
+  <button class="cbtn sub" id="cartCopy">相談文をコピーしてメルカリのコメントに貼る</button>
+  <a class="cbtn sub" href="https://jp.mercari.com/user/profile/256767561" target="_blank" rel="noopener">メルカリのプロフィールを見る</a>
+  <button class="cbtn ghost" id="cartClear">カゴを空にする</button>
+  <button class="cbtn ghost" id="cartClose">閉じる</button>
+</div></div>
+<div id="cartToast"></div>
+<script>
+(function(){
+  var KEY='lea_cart_v1', FORM='https://docs.google.com/forms/d/e/1FAIpQLSfKUJVVdp3wrjr1EqtDk6lFYbtu0z9K3n8YRe8CVGnXCVYzwg/viewform?entry.1326293728=', AFID='?afid=8912821522';
+  var cart=[];
+  try{ cart=JSON.parse(localStorage.getItem(KEY)||'[]'); if(!Array.isArray(cart)) cart=[]; }catch(e){ cart=[]; }
+  var yen=function(n){ return '¥'+n.toLocaleString('ja-JP'); };
+  var total=function(){ return cart.reduce(function(a,c){return a+(+c.price||0)},0); };
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(cart)); }catch(e){} }
+  function inCart(id){ return cart.some(function(c){return c.id===id}); }
+  function toast(msg){ var t=document.getElementById('cartToast'); t.textContent=msg; t.style.display='block'; setTimeout(function(){ t.style.display='none'; },2600); }
+  function listText(){
+    var lines=['［同梱・まとめ買いのご相談］','Lea Mahaloのサイトの買い物かごから相談しています。','在庫確認と、同梱できるかどうかの確認をお願いします。',''];
+    cart.forEach(function(c){ lines.push('・'+c.title+' '+yen(+c.price)); lines.push('  https://jp.mercari.com/item/'+c.id+AFID); });
+    lines.push(''); lines.push('合計（商品代金） '+yen(total()));
+    return lines.join('\n');
+  }
+  function render(){
+    var n=cart.length;
+    document.getElementById('cartCount').textContent=n;
+    document.getElementById('cartTotal').textContent=yen(total());
+    document.getElementById('cartSum').textContent=yen(total());
+    document.getElementById('cartbar').classList.toggle('on', n>0);
+    document.body.classList.toggle('cart-on', n>0);
+    document.querySelectorAll('.addbtn').forEach(function(b){
+      var on=inCart(b.dataset.id);
+      b.classList.toggle('in', on);
+      b.textContent=on?'✓ カゴに入っています（外す）':'🧺 カゴに入れる';
+    });
+    var list=document.getElementById('cartList');
+    if(!n){ list.innerHTML='<p class="cart-note2">カゴは空です。気になる商品の「カゴに入れる」を押してください。</p>'; }
+    else{
+      list.innerHTML=cart.map(function(c){
+        return '<div class="crow"><img class="crow-img" src="'+c.img+'" alt=""><div class="crow-ti">'+c.title+'<br><a class="crow-lk" href="https://jp.mercari.com/item/'+c.id+AFID+'" target="_blank" rel="noopener">メルカリで見る</a></div><span class="crow-pr">'+yen(+c.price)+'</span><button class="crow-rm" data-rm="'+c.id+'">外す</button></div>';
+      }).join('');
+      list.querySelectorAll('[data-rm]').forEach(function(b){ b.addEventListener('click', function(){ toggle(b.dataset.rm); }); });
+    }
+    document.getElementById('cartForm').href=FORM+encodeURIComponent(listText());
+  }
+  function toggle(id, item){
+    if(inCart(id)){ cart=cart.filter(function(c){return c.id!==id}); if(window.gtag) gtag('event','cart_action',{action:'remove',item_id:id}); }
+    else if(item){ cart.push(item); if(window.gtag) gtag('event','cart_action',{action:'add',item_id:id}); toast('カゴに入れました'); }
+    save(); render();
+  }
+  document.querySelectorAll('a.card[href*="jp.mercari.com/item/"]').forEach(function(a){
+    var m=a.getAttribute('href').match(/item\/(m\d+)/); if(!m) return;
+    var id=m[1];
+    var h=a.querySelector('h3'); var pr=a.querySelector('.price'); var im=a.querySelector('img');
+    var price=pr? (pr.textContent.replace(/[^0-9]/g,'')||0):0;
+    var body=a.querySelector('.body'); if(!body) return;
+    var b=document.createElement('button');
+    b.type='button'; b.className='addbtn'; b.dataset.id=id;
+    b.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); toggle(id, {id:id, title:h?h.textContent.trim():'', price:+price, img:im?im.getAttribute('src'):''}); });
+    body.appendChild(b);
+  });
+  document.getElementById('cartOpen').addEventListener('click', function(){ document.getElementById('cartPanel').classList.add('open'); });
+  document.getElementById('cartClose').addEventListener('click', function(){ document.getElementById('cartPanel').classList.remove('open'); });
+  document.getElementById('cartPanel').addEventListener('click', function(e){ if(e.target===this) this.classList.remove('open'); });
+  document.getElementById('cartClear').addEventListener('click', function(){ cart=[]; save(); render(); });
+  document.getElementById('cartCopy').addEventListener('click', function(){
+    var txt=listText();
+    function done(){ toast('相談文をコピーしました。メルカリの商品コメントに貼ってください'); }
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, function(){ window.prompt('コピーしてください', txt); }); }
+    else{ window.prompt('コピーしてください', txt); }
+  });
+  render();
+})();
+</script>
+<!--/LEA_CART-->
+
 </body>
 </html>
