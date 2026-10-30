@@ -421,7 +421,7 @@
 
 <button id="botBtn" aria-label="チャットを開く">探す・質問する</button>
 <div id="botPanel" role="dialog" aria-label="Lea Mahalo チャット">
-  <div id="botHead">Lea Mahalo ご案内チャット</div>
+  <div id="botHead">Lea Mahalo</div>
   <div id="botLog"></div>
   <div id="botQuick">
     <button data-q="まとめ買いしたい">まとめ買い</button>
@@ -431,6 +431,7 @@
     <button data-q="お店はどこ？">お店の場所</button>
   </div>
   <form id="botForm"><input id="botInput" placeholder="質問を入力（例：マイクラある？）" autocomplete="off"><button id="botSend" type="submit">送信</button></form>
+  <p style="font-size:.75rem;color:#7c5c62;margin:8px 12px 12px">※ AIが答えています。間違うこともあるので、大事なこと（在庫・料金など）は、メルカリの商品ページでも確認してください。</p>
 </div>
 <script>
 (function(){
@@ -526,6 +527,20 @@
     var d=document.createElement('div'); d.className=cls;
     var s=document.createElement('span'); s.innerHTML=text; d.appendChild(s); log.appendChild(d);
     log.scrollTop=log.scrollHeight;
+    return d;
+  }
+  function logChat(topic,kind){
+    if(window.gtag){gtag('event','chat_question',{topic:topic,kind:kind});}
+    try{
+      var d=JSON.parse(localStorage.getItem('lea_bot_q')||'{}');
+      d[topic]=(d[topic]||0)+1; localStorage.setItem('lea_bot_q',JSON.stringify(d));
+    }catch(e){}
+  }
+  function addBotText(text){
+    var d=document.createElement('div'); d.className='bot';
+    var s=document.createElement('span'); s.textContent=text; d.appendChild(s); log.appendChild(d);
+    log.scrollTop=log.scrollHeight;
+    return d;
   }
   var PROFILE='https://jp.mercari.com/user/profile/256767561'+AF;
   var lastTopic='';
@@ -549,8 +564,8 @@
     if(/営業|時間|いつ/.test(t))return '営業時間';
     return 'その他・答えられなかった';
   }
-  function answer(t){
-    track('bot_q', topicOf(t));
+  function answer(t,kind){
+    logChat(topicOf(t), kind||'text');
     if(/マイクラ|マインクラフト/.test(t)) return 'マイクラ特集があります。ぬいぐるみ、クッション、リュック、プールバッグの4点をこのページの「マイクラ特集」にまとめています。在庫はメルカリ側の表示が最新です。'+BTN('#minecraft','マイクラ特集へ行く');
     if(/ポケモン/.test(t)) return 'ポケモンはドンジャラとアニメ超ひゃっか（平成レトロ）があります。上のキャラチップ「ポケモン」で絞り込めます。';
     if(/犬夜叉/.test(t)) return '犬夜叉はフィギュア4体セットと画集35周年うちわがあります。キャラチップ「犬夜叉」で絞り込めます。';
@@ -565,24 +580,37 @@
     if(/在庫|ある？|ありますか|売り切れ/.test(t)) return 'ご購入前に、必ず在庫確認コメントをお願いします（必須）。実店舗と在庫を共有しているため、確認なしのご購入はキャンセルをお願いする場合があります。このページは2026年10月27日時点の販売中情報です。';
     if(/サイズ/.test(t)) return 'サイズは各商品ページに記載しています。気になる商品のページでご確認ください。';
     if(/値引|割引|安く/.test(t)) return '価格のご相談はメルカリのコメントからお願いします（ものによっては難しい場合もあります）。';
-    if(/こんにちは|はじめまして|やあ/.test(t)) return 'こんにちは、Lea Mahaloのご案内です。探しものやまとめ買い、なんでも聞いてください。';
+    if(/こんにちは|はじめまして|やあ/.test(t)) return 'こんにちは。Lea Mahaloです。探しものやまとめ買い、なんでも聞いてください。';
     if(/どうやって|使い方|やり方|見方を教/.test(t)){ if(lastTopic==='coord') return 'コーデメーカーの使い方です。<br>1. 下のボタンで「コーデメーカー」へ<br>2. メイン（ワンピース等）と羽織りを1つずつ選ぶ<br>3. 合計金額が表示されます。気に入ったら各商品のボタンからメルカリで確認してください（購入前に在庫確認コメントが必須です）'+BTN('#maker','コーデメーカーへ行く')+BTN('coords.html','コーデ図鑑を開く','sub'); return 'このページの使い方です。<br>1. 上の検索窓やカテゴリ・キャラのチップで絞り込む<br>2. 商品カードを押すとメルカリの商品ページが開きます<br>3. ご購入の前に、在庫確認コメントが必須です'; }
     return 'すみません、その質問にはここでは答えきれません。探しもの・在庫・まとめ買いはメルカリのコメントでも受け付けています。各カテゴリページの検索でも探せます。'+BTN(PROFILE,'メルカリのプロフィールを開く');
   }
   document.getElementById('botBtn').addEventListener('click',function(){
     panel.classList.toggle('open');
     if(panel.classList.contains('open')&&!log.children.length){
-      addMsg('bot','こんにちは、Lea Mahalo（雑貨屋・松山市）です。商品探し、コーデ、まとめ買いの相談ができます。');
+      addMsg('bot','こんにちは。Lea Mahaloです。商品探し、コーデ、まとめ買いの相談ができます。');
     }
   });
-  function send(t){
+  function send(t,isQuick){
     if(!t)return; addMsg('me',t.replace(/</g,'&lt;'));
-    setTimeout(function(){addMsg('bot',answer(t));},250);
+    if(isQuick){ addMsg('bot',answer(t,'chip')); return; }
+    if(window.__geminiAsk){
+      var typing=addMsg('bot','考え中…');
+      window.__geminiAsk(t).then(function(aiAns){
+        if(typing)typing.remove();
+        if(aiAns){ addBotText(aiAns); logChat('AIの回答','ai'); }
+        else{ var ans=answer(t,'text'); if(window.__logBot)window.__logBot(t,ans.replace(/<[^>]+>/g,'')); addMsg('bot',ans); }
+      }).catch(function(){
+        if(typing)typing.remove();
+        var ans=answer(t,'text'); if(window.__logBot)window.__logBot(t,ans.replace(/<[^>]+>/g,'')); addMsg('bot',ans);
+      });
+    } else {
+      var ans2=answer(t,'text'); if(window.__logBot)window.__logBot(t,ans2.replace(/<[^>]+>/g,'')); addMsg('bot',ans2);
+    }
   }
   document.getElementById('botForm').addEventListener('submit',function(e){
-    e.preventDefault(); var i=document.getElementById('botInput'); send(i.value.trim()); i.value='';
+    e.preventDefault(); var i=document.getElementById('botInput'); send(i.value.trim(),false); i.value='';
   });
-  document.querySelectorAll('#botQuick button').forEach(function(b){b.addEventListener('click',function(){send(b.dataset.q);});});
+  document.querySelectorAll('#botQuick button').forEach(function(b){b.addEventListener('click',function(){send(b.dataset.q,true);});});
 })();
 </script>
 
@@ -590,6 +618,57 @@
 
 
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app-check.js";
+import { getAI, getGenerativeModel, GoogleAIBackend } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-ai.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+var SYS = "あなたは、愛媛県松山市の雑貨屋「Lea Mahalo」のサイト案内役です。名前はありません。名前を聞かれたら「Lea Mahaloです」と答えてください。質問には親しみやすく、短く（1〜3文）答えてください。\n\n\n・嘘をつかないでください。下の知識にないことは作り話をせず、正直に「分からない」と言ってください。\n・個別の商品の在庫・価格・サイズは、ここでは断定しないでください。価格と在庫はメルカリの表示が最新です。気になる商品はサイトのカテゴリページで探せて、商品カードからメルカリの商品ページへ行けます。\n・分からないときや、在庫・探しもの・まとめ買いの相談は、メルカリのコメントへ案内してください。\n・Lea Mahaloと関係のない質問には、「お店のことなら答えられます」とやんわり返してください。\n\n\n・松山市味酒町3-2-29 MAHALOビル1Fの雑貨屋です。実店舗は普段開いておらず、来店は予約制です。販売は主にメルカリで行っていて、全国へ配送します。メルカリのプロフィール：https://jp.mercari.com/user/profile/256767561\n・ご購入の前には、必ず在庫確認のコメントが必要です（必須）。実店舗と在庫を共有しているため、確認なしのご購入はキャンセルをお願いする場合があります。\n・まとめ買い・同梱ができます。サイトの買い物かごに気になる商品を集めて、同梱・まとめ買い相談フォームから送れます。メルカリの商品ページからコメントで相談してもらっても大丈夫で、専用ページを作って同梱します。\n・商品探し代行をしています。出品中の商品と店内在庫から探すので、探しものはメルカリのコメントで知らせてください。\n・axes femmeは、生産終了した昔のデザインを探す人が多いブランドです。Leaには長年の在庫があり、出ていない物は商品探し代行で探せます。\n・コーデの見方は3つあります：コーデ図鑑（全56通り）、着用イメージ、コーデメーカー（自分で組み合わせ）。\n・送料は各商品ページの表示を確認してください。まとめ買い（同梱）で抑えられる場合があります。\n・ハンドメイド作品の委託もしています。";
+try {
+  var aiApp = initializeApp({
+  apiKey: "AIzaSyCao64N8dfQoXBmsMHIDpLpQwQyXp-2iw0",
+  authDomain: "ohana-share.firebaseapp.com",
+  projectId: "ohana-share",
+  storageBucket: "ohana-share.firebasestorage.app",
+  messagingSenderId: "825904150210",
+  appId: "1:825904150210:web:4ae90f047ac8cc761cad5b"
+}, 'ohana-ai');
+  initializeAppCheck(aiApp, { provider: new ReCaptchaEnterpriseProvider('6LfLJwcuAAAAAJk3CSivW9C-9E0Q-Cexl9wwibrv'), isTokenAutoRefreshEnabled: true });
+  var aiDb = getFirestore(aiApp);
+  var ai = getAI(aiApp, { backend: new GoogleAIBackend() });
+  var model = getGenerativeModel(ai, { model: 'gemini-3.5-flash-lite', systemInstruction: SYS });
+  var chat = null;
+  function kunUsed(){
+    try {
+      var d = new Date();
+      var key = 'lea_kun_' + d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+      var n = parseInt(localStorage.getItem(key) || '0', 10) + 1;
+      localStorage.setItem(key, String(n));
+      return n;
+    } catch(e){ return 1; }
+  }
+
+  window.__logBot = function(q, a){
+    try { addDoc(collection(aiDb, 'botLogs'), { q: String(q).slice(0, 300), a: String(a || '').slice(0, 2000), page: location.pathname, site: 'lea', ts: serverTimestamp() }).catch(function(){}); } catch(e){}
+  };
+  window.__geminiAsk = function(text){
+    if (kunUsed() > 20) return Promise.resolve("たくさん聞いてくれて、ありがとうございます。ここから先は、メルカリの商品ページのコメントで聞いてくださいね。在庫確認や探しものも、そちらで受け付けています。");
+    function attempt(){
+      if (!chat) chat = model.startChat({ history: [] });
+      return chat.sendMessage(text).then(function(res){ return res.response.text(); });
+    }
+    var p = attempt().catch(function(){ chat = null; return attempt(); });
+    var timeout = new Promise(function(res){ setTimeout(function(){ res(null); }, 15000); });
+    return Promise.race([p, timeout]).then(function(ans){
+      if (ans) {
+        try { addDoc(collection(aiDb, 'botLogs'), { q: text, a: String(ans).slice(0, 2000), page: location.pathname, site: 'lea', ts: serverTimestamp() }).catch(function(){}); } catch(e){}
+        return String(ans);
+      }
+      return null;
+    }).catch(function(){ return null; });
+  };
+} catch(e){}
+</script>
 <!--LEA_CART-->
 <style>
   .addbtn{display:block;width:100%;margin-top:8px;background:var(--rose);color:#fff;border:2px solid var(--rose);border-radius:999px;padding:8px 0;font-size:14px;font-weight:800;cursor:pointer}
@@ -723,7 +802,7 @@ body.site-editing [data-tk]{outline:2px dashed rgba(224,123,36,.55);outline-offs
 (function(){
   var PAGE = 'lea-top';
   var OWNER = 'ELCzyeeoDCU4gveavc077L4jBqE3';
-  var EXCLUDED = '#site-savebar,#site-editbtn,.ied-panel,script,style,textarea,select,#cartbar,#cartPanel,#cartToast,.cart-box,#hitcount,.cchips,.chip,.gchip';
+  var EXCLUDED = '#site-savebar,#site-editbtn,.ied-panel,script,style,textarea,select,#cartbar,#cartPanel,#cartToast,.cart-box,#hitcount,.cchips,.chip,.gchip,#botBtn,#botPanel';
   var editing = false;
   var applied = {};
   function $(id){ return document.getElementById(id); }
