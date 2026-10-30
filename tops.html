@@ -136,6 +136,27 @@
   .coord a.wornlink{display:block}
   a.chip{display:inline-block;text-decoration:none;color:var(--rose-deep)}
 
+/* ===== motion-pack ===== */
+/* ===== motion-pack: scroll reveal (OHANAトップ方式) ===== */
+html.js .mrv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+html.js .mrv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){html.js .mrv{opacity:1;transform:none;transition:none}}
+
+/* motion-pack: card hover */
+.grid .card{transition:transform .25s ease,box-shadow .25s ease}
+.grid .card:hover{box-shadow:0 12px 26px -12px rgba(168,62,88,.38)}
+.grid .card:active{transform:translateY(-1px) scale(.99)}
+.grid .card img{transition:transform .45s ease}
+.grid .card:hover img{transform:scale(1.05)}
+@media (prefers-reduced-motion: reduce){.grid .card,.grid .card img{transition:none}.grid .card:hover img{transform:none}}
+
+.mq{overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.mq-in{display:inline-flex;animation:mqmove 30s linear infinite;will-change:transform}
+.mq-half{padding:.55em 0}
+@keyframes mqmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.mq-in{animation:none}}
+.mq{max-width:720px;margin:0 auto;background:#FDEDF1;color:#B84A62;font-weight:800;font-size:13.5px;letter-spacing:.1em;border-bottom:2px solid var(--rose-soft,#F6CFD9)}
+
   .pagehead{background:linear-gradient(135deg,#FDEDF1,#FFF9F3 60%);border-bottom:2px solid var(--rose-soft);padding:22px 0 14px;text-align:center}
   .pagehead h1{font-size:26px;color:var(--rose-deep)}
   .backbtn{display:inline-block;margin:14px 0;background:#fff;border:2px solid var(--rose);color:var(--rose-deep);border-radius:999px;padding:8px 18px;font-weight:800;text-decoration:none}
@@ -157,9 +178,9 @@
   <div class="grid" id="grid">
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m70689418809?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m70689418809.jpg" alt="axes femme ボーダーニット 半袖 レース装飾"><div class="body"><span class="tag">トップス</span><h3>axes femme ボーダーニット 半袖 レース装飾</h3><p class="price">¥2,700</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m33091674818?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m33091674818.jpg" alt="axes femme ラメニット 半袖カットソー レース"><div class="body"><span class="tag">トップス</span><h3>axes femme ラメニット 半袖カットソー レース</h3><p class="price">¥2,700</p></div></a>
-      <a class="card" data-cat="tops" data-tags="european lolita" href="https://jp.mercari.com/item/m85913513298?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m85913513298.jpg" alt="axes femme 半袖カットソー レース リボン ブラック"><div class="body"><span class="tag">トップス</span><h3>axes femme 半袖カットソー レース リボン ブラック</h3><p class="price">¥2,600</p></div></a>
+      <a class="card" data-cat="tops" data-tags="lolita european" href="https://jp.mercari.com/item/m85913513298?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m85913513298.jpg" alt="axes femme 半袖カットソー レース リボン ブラック"><div class="body"><span class="tag">トップス</span><h3>axes femme 半袖カットソー レース リボン ブラック</h3><p class="price">¥2,600</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m69242392689?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m69242392689.jpg" alt="axes femme 半袖カットソー レース装飾 コサージュ付き"><div class="body"><span class="tag">トップス</span><h3>axes femme 半袖カットソー レース装飾 コサージュ付き</h3><p class="price">¥2,300</p></div></a>
-      <a class="card" data-cat="tops" data-tags="european lolita" href="https://jp.mercari.com/item/m55102470726?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m55102470726.jpg" alt="axes femme 半袖 カットソー ブラック レース リボン"><div class="body"><span class="tag">トップス</span><h3>axes femme 半袖 カットソー ブラック レース リボン</h3><p class="price">¥2,100</p></div></a>
+      <a class="card" data-cat="tops" data-tags="lolita european" href="https://jp.mercari.com/item/m55102470726?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m55102470726.jpg" alt="axes femme 半袖 カットソー ブラック レース リボン"><div class="body"><span class="tag">トップス</span><h3>axes femme 半袖 カットソー ブラック レース リボン</h3><p class="price">¥2,100</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m97912675911?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m97912675911.jpg" alt="axes femme レース切替 半袖カットソー オフホワイト M"><div class="body"><span class="tag">トップス</span><h3>axes femme レース切替 半袖カットソー オフホワイト M</h3><p class="price">¥2,700</p></div></a>
       <a class="card" data-cat="tops" href="https://jp.mercari.com/item/m88927776187?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m88927776187_1.jpg" alt="axes femme 半袖Tシャツ"><div class="body"><span class="tag">トップス</span><h3>axes femme 半袖Tシャツ</h3><p class="price">¥2,400</p></div></a>
       <a class="card" data-cat="tops" href="https://jp.mercari.com/item/m46474321377?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m46474321377_1.jpg" alt="axes femme 半袖フリルブラウス シースルー Mサイズ"><div class="body"><span class="tag">トップス</span><h3>axes femme 半袖フリルブラウス シースルー Mサイズ</h3><p class="price">¥3,600</p></div></a>
@@ -176,24 +197,24 @@
       <a class="card" data-cat="tops" href="https://jp.mercari.com/item/m67165368418?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m67165368418_1.jpg" alt="axes ラベンダー 半袖トップス M"><div class="body"><span class="tag">トップス</span><h3>axes ラベンダー 半袖トップス M</h3><p class="price">¥2,800</p></div></a>
       <a class="card" data-cat="tops" href="https://jp.mercari.com/item/m80341032606?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m80341032606_1.jpg" alt="axes 花柄フリルチュニック Mサイズ"><div class="body"><span class="tag">トップス</span><h3>axes 花柄フリルチュニック Mサイズ</h3><p class="price">¥2,700</p></div></a>
       <a class="card" data-cat="tops" data-tags="lolita" href="https://jp.mercari.com/item/m66820191427?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m66820191427.jpg" alt="BODY LINE アイボリー レース トップス M"><div class="body"><span class="tag">トップス</span><h3>BODY LINE アイボリー レース トップス M</h3><p class="price">¥2,300</p></div></a>
-      <a class="card" data-cat="tops" data-tags="european lolita" href="https://jp.mercari.com/item/m45807478538?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m45807478538.jpg" alt="axes femme 黒 レース編み ベスト"><div class="body"><span class="tag">羽織りもの</span><h3>axes femme 黒 レース編み ベスト</h3><p class="price">¥2,600</p></div></a>
+      <a class="card" data-cat="tops" data-tags="lolita european" href="https://jp.mercari.com/item/m45807478538?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m45807478538.jpg" alt="axes femme 黒 レース編み ベスト"><div class="body"><span class="tag">羽織りもの</span><h3>axes femme 黒 レース編み ベスト</h3><p class="price">¥2,600</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m11116987761?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m11116987761.jpg" alt="axes femme チェック柄 ノースリーブベスト"><div class="body"><span class="tag">羽織りもの</span><h3>axes femme チェック柄 ノースリーブベスト</h3><p class="price">¥3,600</p></div></a>
       <a class="card" data-cat="tops" data-tags="biyoshi" href="https://jp.mercari.com/item/m76430048271?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m76430048271.jpg" alt="AIVIL PRO DRYER 1200 ブラック"><div class="body"><span class="tag">平成レトロ・雑貨</span><h3>AIVIL PRO DRYER 1200 ブラック</h3><p class="price">¥7,500</p></div></a>
-      <a class="card" data-cat="tops" data-tags="european lolita" href="https://jp.mercari.com/item/m94050583378?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m94050583378.jpg" alt="axes femme 黒い五分袖フリルトップス"><div class="body"><span class="tag">トップス</span><h3>axes femme 黒い五分袖フリルトップス</h3><p class="price">¥2,308</p></div></a>
+      <a class="card" data-cat="tops" data-tags="lolita european" href="https://jp.mercari.com/item/m94050583378?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m94050583378.jpg" alt="axes femme 黒い五分袖フリルトップス"><div class="body"><span class="tag">トップス</span><h3>axes femme 黒い五分袖フリルトップス</h3><p class="price">¥2,308</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m38295220873?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m38295220873.jpg" alt="axes femme 刺繍入り 長袖ブラウス クリーム"><div class="body"><span class="tag">トップス</span><h3>axes femme 刺繍入り 長袖ブラウス クリーム</h3><p class="price">¥2,400</p></div></a>
-      <a class="card" data-cat="tops" data-tags="european lolita" href="https://jp.mercari.com/item/m90020069716?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m90020069716.jpg" alt="axes femme ブラック 長袖シャツ フリル付き"><div class="body"><span class="tag">トップス</span><h3>axes femme ブラック 長袖シャツ フリル付き</h3><p class="price">¥1,900</p></div></a>
-      <a class="card" data-cat="tops" data-tags="european lolita" href="https://jp.mercari.com/item/m26831888119?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m26831888119.jpg" alt="axes femme ブラック 長袖 トップス レース付き"><div class="body"><span class="tag">トップス</span><h3>axes femme ブラック 長袖 トップス レース付き</h3><p class="price">¥1,700</p></div></a>
+      <a class="card" data-cat="tops" data-tags="lolita european" href="https://jp.mercari.com/item/m90020069716?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m90020069716.jpg" alt="axes femme ブラック 長袖シャツ フリル付き"><div class="body"><span class="tag">トップス</span><h3>axes femme ブラック 長袖シャツ フリル付き</h3><p class="price">¥1,900</p></div></a>
+      <a class="card" data-cat="tops" data-tags="lolita european" href="https://jp.mercari.com/item/m26831888119?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m26831888119.jpg" alt="axes femme ブラック 長袖 トップス レース付き"><div class="body"><span class="tag">トップス</span><h3>axes femme ブラック 長袖 トップス レース付き</h3><p class="price">¥1,700</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m51172511802?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m51172511802.jpg" alt="axes femme フリルデザイン ニット 長袖 ベージュ"><div class="body"><span class="tag">トップス</span><h3>axes femme フリルデザイン ニット 長袖 ベージュ</h3><p class="price">¥2,300</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m41402459665?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m41402459665.jpg" alt="axes femme ワインレッド フリル長袖トップス"><div class="body"><span class="tag">トップス</span><h3>axes femme ワインレッド フリル長袖トップス</h3><p class="price">¥2,300</p></div></a>
-      <a class="card" data-cat="tops" data-tags="european lolita" href="https://jp.mercari.com/item/m14293295791?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m14293295791.jpg" alt="axes femme 薄紫色 フリルニット パール長袖"><div class="body"><span class="tag">トップス</span><h3>axes femme 薄紫色 フリルニット パール長袖</h3><p class="price">¥3,000</p></div></a>
+      <a class="card" data-cat="tops" data-tags="lolita european" href="https://jp.mercari.com/item/m14293295791?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m14293295791.jpg" alt="axes femme 薄紫色 フリルニット パール長袖"><div class="body"><span class="tag">トップス</span><h3>axes femme 薄紫色 フリルニット パール長袖</h3><p class="price">¥3,000</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m53877998638?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m53877998638.jpg" alt="axes femme ストライプ レース襟 ニット"><div class="body"><span class="tag">トップス</span><h3>axes femme ストライプ レース襟 ニット</h3><p class="price">¥2,300</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m27376502268?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m27376502268.jpg" alt="axes femme バーガンディ チュニック"><div class="body"><span class="tag">トップス</span><h3>axes femme バーガンディ チュニック</h3><p class="price">¥2,300</p></div></a>
-      <a class="card" data-cat="tops" data-tags="european lolita" href="https://jp.mercari.com/item/m91257074092?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m91257074092.jpg" alt="axes femme フリル付き ブラックニット"><div class="body"><span class="tag">トップス</span><h3>axes femme フリル付き ブラックニット</h3><p class="price">¥2,400</p></div></a>
+      <a class="card" data-cat="tops" data-tags="lolita european" href="https://jp.mercari.com/item/m91257074092?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m91257074092.jpg" alt="axes femme フリル付き ブラックニット"><div class="body"><span class="tag">トップス</span><h3>axes femme フリル付き ブラックニット</h3><p class="price">¥2,400</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m82250320759?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m82250320759.jpg" alt="axes femme ドット柄ストライプニットセーター"><div class="body"><span class="tag">トップス</span><h3>axes femme ドット柄ストライプニットセーター</h3><p class="price">¥2,600</p></div></a>
-      <a class="card" data-cat="tops" data-tags="european lolita" href="https://jp.mercari.com/item/m54038527683?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m54038527683.jpg" alt="axes femme ブラックチュニック 五分袖"><div class="body"><span class="tag">トップス</span><h3>axes femme ブラックチュニック 五分袖</h3><p class="price">¥1,900</p></div></a>
+      <a class="card" data-cat="tops" data-tags="lolita european" href="https://jp.mercari.com/item/m54038527683?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m54038527683.jpg" alt="axes femme ブラックチュニック 五分袖"><div class="body"><span class="tag">トップス</span><h3>axes femme ブラックチュニック 五分袖</h3><p class="price">¥1,900</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m58484648195?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m58484648195.jpg" alt="axes femme ライトグレー タンクトップ"><div class="body"><span class="tag">トップス</span><h3>axes femme ライトグレー タンクトップ</h3><p class="price">¥2,000</p></div></a>
       <a class="card" data-cat="tops" data-tags="european" href="https://jp.mercari.com/item/m12328186121?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m12328186121.jpg" alt="axes femme ダークグレー フリル付きキャミソール"><div class="body"><span class="tag">トップス</span><h3>axes femme ダークグレー フリル付きキャミソール</h3><p class="price">¥2,200</p></div></a>
-      <a class="card" data-cat="tops" data-tags="european lolita" href="https://jp.mercari.com/item/m45250994681?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m45250994681.jpg" alt="axes femme アイボリー レース トップス"><div class="body"><span class="tag">トップス</span><h3>axes femme アイボリー レース トップス</h3><p class="price">¥2,300</p></div></a>
+      <a class="card" data-cat="tops" data-tags="lolita european" href="https://jp.mercari.com/item/m45250994681?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m45250994681.jpg" alt="axes femme アイボリー レース トップス"><div class="body"><span class="tag">トップス</span><h3>axes femme アイボリー レース トップス</h3><p class="price">¥2,300</p></div></a>
       <a class="card" data-cat="tops" href="https://jp.mercari.com/item/m48417620253?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m48417620253_1.jpg" alt="axes femme フラワープリント ノースリーブチュニック"><div class="body"><span class="tag">トップス</span><h3>axes femme フラワープリント ノースリーブチュニック</h3><p class="price">¥2,400</p></div></a>
       <a class="card" data-cat="tops" href="https://jp.mercari.com/item/m62561309284?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m62561309284_1.jpg" alt="axes femme フード付きストライプニットセーター"><div class="body"><span class="tag">トップス</span><h3>axes femme フード付きストライプニットセーター</h3><p class="price">¥2,200</p></div></a>
       <a class="card" data-cat="tops" href="https://jp.mercari.com/item/m91911627125?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m91911627125_1.jpg" alt="axes femmeレース付きハイネックシャツ 長袖ライトグレー"><div class="body"><span class="tag">トップス</span><h3>axes femmeレース付きハイネックシャツ 長袖ライトグレー</h3><p class="price">¥2,300</p></div></a>
@@ -567,6 +588,22 @@ try {
     }).catch(function(){ return null; });
   };
 } catch(e){}
+</script>
+
+
+<script>
+/* motion-pack: scroll reveal */
+(function(){
+document.documentElement.classList.add('js');
+if(!('IntersectionObserver' in window) || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+var list = Array.prototype.slice.call(document.querySelectorAll('#grid .card, header.pagehead, footer'));
+list = list.filter(function(el){ return !list.some(function(o){ return o !== el && el.contains(o); }); });
+list.forEach(function(el){ el.classList.add('mrv'); });
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold: 0, rootMargin: '0px 0px 15% 0px'});
+list.forEach(function(el){ io.observe(el); });
+})();
 </script>
 
 <!-- site-editor -->

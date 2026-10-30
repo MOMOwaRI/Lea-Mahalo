@@ -128,6 +128,27 @@
   .coord .pair2 span{display:block;font-size:12.5px;font-weight:700;margin-top:5px;line-height:1.4}
   .coord a.wornlink{display:block}
   a.chip{display:inline-block;text-decoration:none;color:var(--rose-deep)}
+
+/* ===== motion-pack ===== */
+/* ===== motion-pack: scroll reveal (OHANAトップ方式) ===== */
+html.js .mrv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+html.js .mrv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){html.js .mrv{opacity:1;transform:none;transition:none}}
+
+/* motion-pack: card hover */
+.grid .card{transition:transform .25s ease,box-shadow .25s ease}
+.grid .card:hover{box-shadow:0 12px 26px -12px rgba(168,62,88,.38)}
+.grid .card:active{transform:translateY(-1px) scale(.99)}
+.grid .card img{transition:transform .45s ease}
+.grid .card:hover img{transform:scale(1.05)}
+@media (prefers-reduced-motion: reduce){.grid .card,.grid .card img{transition:none}.grid .card:hover img{transform:none}}
+
+.mq{overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.mq-in{display:inline-flex;animation:mqmove 30s linear infinite;will-change:transform}
+.mq-half{padding:.55em 0}
+@keyframes mqmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.mq-in{animation:none}}
+.mq{max-width:720px;margin:0 auto;background:#FDEDF1;color:#B84A62;font-weight:800;font-size:13.5px;letter-spacing:.1em;border-bottom:2px solid var(--rose-soft,#F6CFD9)}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Store","name":"雑貨屋 Lea Mahalo（Lea MAHALO）",
@@ -182,6 +203,8 @@
     <p class="note" style="font-weight:700;color:var(--rose)">店舗でも買えます（来店は予約制）／ いつもは開いていない、レアな雑貨屋です</p>
   </div>
 </header>
+<div class="mq" aria-hidden="true"><div class="mq-in"><span class="mq-half">ワンピース　✦　トップス　✦　羽織りもの　✦　ボトムス　✦　ベビー・キッズ　✦　雑貨・インテリア　✦　キャラクターグッズ　✦　バッグ・小物　✦　フォーマル　✦　<span class="mqdot"></span></span><span class="mq-half">ワンピース　✦　トップス　✦　羽織りもの　✦　ボトムス　✦　ベビー・キッズ　✦　雑貨・インテリア　✦　キャラクターグッズ　✦　バッグ・小物　✦　フォーマル　✦　<span class="mqdot"></span></span></div></div>
+
 
   <section id="shop">
     <h2>お店の様子</h2>
@@ -910,5 +933,20 @@ body.site-editing [data-tk]{outline:2px dashed rgba(224,123,36,.55);outline-offs
 })();
 </script>
 
+
+<script>
+/* motion-pack: scroll reveal */
+(function(){
+document.documentElement.classList.add('js');
+if(!('IntersectionObserver' in window) || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+var list = Array.prototype.slice.call(document.querySelectorAll('section, footer, .grid .card'));
+list = list.filter(function(el){ return !list.some(function(o){ return o !== el && el.contains(o); }); });
+list.forEach(function(el){ el.classList.add('mrv'); });
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold: 0, rootMargin: '0px 0px 15% 0px'});
+list.forEach(function(el){ io.observe(el); });
+})();
+</script>
 </body>
 </html>

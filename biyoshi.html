@@ -136,6 +136,27 @@
   .coord a.wornlink{display:block}
   a.chip{display:inline-block;text-decoration:none;color:var(--rose-deep)}
 
+/* ===== motion-pack ===== */
+/* ===== motion-pack: scroll reveal (OHANAトップ方式) ===== */
+html.js .mrv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+html.js .mrv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){html.js .mrv{opacity:1;transform:none;transition:none}}
+
+/* motion-pack: card hover */
+.grid .card{transition:transform .25s ease,box-shadow .25s ease}
+.grid .card:hover{box-shadow:0 12px 26px -12px rgba(168,62,88,.38)}
+.grid .card:active{transform:translateY(-1px) scale(.99)}
+.grid .card img{transition:transform .45s ease}
+.grid .card:hover img{transform:scale(1.05)}
+@media (prefers-reduced-motion: reduce){.grid .card,.grid .card img{transition:none}.grid .card:hover img{transform:none}}
+
+.mq{overflow:hidden;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.mq-in{display:inline-flex;animation:mqmove 30s linear infinite;will-change:transform}
+.mq-half{padding:.55em 0}
+@keyframes mqmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.mq-in{animation:none}}
+.mq{max-width:720px;margin:0 auto;background:#FDEDF1;color:#B84A62;font-weight:800;font-size:13.5px;letter-spacing:.1em;border-bottom:2px solid var(--rose-soft,#F6CFD9)}
+
   .pagehead{background:linear-gradient(135deg,#FDEDF1,#FFF9F3 60%);border-bottom:2px solid var(--rose-soft);padding:22px 0 14px;text-align:center}
   .pagehead h1{font-size:26px;color:var(--rose-deep)}
   .backbtn{display:inline-block;margin:14px 0;background:#fff;border:2px solid var(--rose);color:var(--rose-deep);border-radius:999px;padding:8px 18px;font-weight:800;text-decoration:none}
@@ -490,6 +511,22 @@ try {
     }).catch(function(){ return null; });
   };
 } catch(e){}
+</script>
+
+
+<script>
+/* motion-pack: scroll reveal */
+(function(){
+document.documentElement.classList.add('js');
+if(!('IntersectionObserver' in window) || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+var list = Array.prototype.slice.call(document.querySelectorAll('#grid .card, header.pagehead, footer'));
+list = list.filter(function(el){ return !list.some(function(o){ return o !== el && el.contains(o); }); });
+list.forEach(function(el){ el.classList.add('mrv'); });
+var io = new IntersectionObserver(function(entries){
+entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold: 0, rootMargin: '0px 0px 15% 0px'});
+list.forEach(function(el){ io.observe(el); });
+})();
 </script>
 
 <!-- site-editor -->
