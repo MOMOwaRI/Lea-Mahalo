@@ -176,7 +176,7 @@
       <a class="card" data-cat="chara" data-tags="heisei" href="https://jp.mercari.com/item/m14194241059?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m14194241059.jpg" alt="スージーズー ブーフ/ララ ぬいぐるみ"><div class="body"><span class="tag">平成レトロ・雑貨</span><h3>スージーズー ブーフ/ララ ぬいぐるみ</h3><p class="price">¥2,000</p></div></a>
       <a class="card" data-cat="chara" data-chara="anpanman" data-tags="heisei" href="https://jp.mercari.com/item/m54782557001?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m54782557001.jpg" alt="アンパンマン 顔型バッグ 2個セット ブリキ 缶 レトロ 昭和 平成"><div class="body"><span class="tag">平成レトロ・雑貨</span><h3>アンパンマン 顔型バッグ 2個セット ブリキ 缶 レトロ 昭和 平成</h3><p class="price">¥2,500</p></div></a>
       <a class="card" data-cat="chara" data-tags="retro heisei" href="https://jp.mercari.com/item/m29714911360?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m29714911360.jpg" alt="ちびギャラリー 平成レトロ パンダとネコ、豚狼のぬいぐるみ3点セット"><div class="body"><span class="tag">平成レトロ・雑貨</span><h3>ちびギャラリー 平成レトロ パンダとネコ、豚狼のぬいぐるみ3点セット</h3><p class="price">¥12,900</p></div></a>
-      <a class="card" data-cat="chara" data-chara="gloomy" data-tags="heisei lolita" href="https://jp.mercari.com/item/m25345377438?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m25345377438.jpg" alt="初期グルーミー 平成レトロ 超レア 花嫁ウェディング他"><div class="body"><span class="tag">平成レトロ・雑貨</span><h3>初期グルーミー 平成レトロ 超レア 花嫁ウェディング他</h3><p class="price">価格相談</p></div></a>
+      <a class="card" data-cat="chara" data-chara="gloomy" data-tags="lolita heisei" href="https://jp.mercari.com/item/m25345377438?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m25345377438.jpg" alt="初期グルーミー 平成レトロ 超レア 花嫁ウェディング他"><div class="body"><span class="tag">平成レトロ・雑貨</span><h3>初期グルーミー 平成レトロ 超レア 花嫁ウェディング他</h3><p class="price">価格相談</p></div></a>
       <a class="card" data-cat="chara" data-chara="disney" data-tags="american" href="https://jp.mercari.com/item/m66482964101?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m66482964101.jpg" alt="ミッキーマウス フリンジジャケット 100cm"><div class="body"><span class="tag">ベビー・キッズ</span><h3>ミッキーマウス フリンジジャケット 100cm</h3><p class="price">¥2,900</p></div></a>
       <a class="card" data-cat="chara" data-chara="anpanman" href="https://jp.mercari.com/item/m26098837392?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m26098837392_1.jpg" alt="アンパンマン ベビーレインコート 100cm"><div class="body"><span class="tag">キャラクターグッズ</span><h3>アンパンマン ベビーレインコート 100cm</h3><p class="price">¥1,300</p></div></a>
       <a class="card" data-cat="chara" data-chara="pokemon" href="https://jp.mercari.com/item/m84323501856?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m84323501856_1.jpg" alt="ランダム発送★指定可★Minecraft・ポケモン・ミニオンぬいぐるみ"><div class="body"><span class="tag">キャラクターグッズ</span><h3>ランダム発送★指定可★Minecraft・ポケモン・ミニオンぬいぐるみ</h3><p class="price">¥1,800</p></div></a>
@@ -421,6 +421,7 @@
   });
   document.getElementById('cartOpen').addEventListener('click', function(){ document.getElementById('cartPanel').classList.add('open'); });
   document.getElementById('cartClose').addEventListener('click', function(){ document.getElementById('cartPanel').classList.remove('open'); });
+  document.addEventListener('click', function(e){ var cp=document.getElementById('cartPanel'); var co=document.getElementById('cartOpen'); if(cp && cp.classList.contains('open') && !cp.contains(e.target) && !(co && co.contains(e.target))){ cp.classList.remove('open'); } });
   document.getElementById('cartPanel').addEventListener('click', function(e){ if(e.target===this) this.classList.remove('open'); });
   document.getElementById('cartClear').addEventListener('click', function(){ cart=[]; save(); render(); });
   document.getElementById('cartCopy').addEventListener('click', function(){
@@ -538,6 +539,10 @@ body.cart-on #botPanel{bottom:144px}
     if(panel.classList.contains('open')&&!log.children.length){
       addMsg('bot','こんにちは。Lea Mahaloです。商品探し、コーデ、まとめ買いの相談ができます。');
     }
+  });
+  document.addEventListener('click',function(e){
+    var bb=document.getElementById('botBtn');
+    if(panel.classList.contains('open') && !panel.contains(e.target) && !(bb && bb.contains(e.target))){ panel.classList.remove('open'); }
   });
   function send(t,isQuick){
     if(!t)return; addMsg('me',t.replace(/</g,'&lt;'));

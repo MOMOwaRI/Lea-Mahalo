@@ -162,7 +162,7 @@
       <a class="card" data-cat="interior" data-tags="american retro" href="https://jp.mercari.com/item/m84170332261?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m84170332261_1.jpg" alt="アメリカン雑貨　雑貨屋さんセレクト　ヴィンテージ風木製ディスプレイ"><div class="body"><span class="tag">雑貨・インテリア</span><h3>アメリカン雑貨　雑貨屋さんセレクト　ヴィンテージ風木製ディスプレイ</h3><p class="price">¥2,000</p></div></a>
       <a class="card" data-cat="chara" data-tags="american" href="https://jp.mercari.com/item/m47007211399?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m47007211399_1.jpg" alt="雑貨屋さん★アメリカン雑貨★国旗★ルート66★MARVEL 10万円分選定"><div class="body"><span class="tag">キャラクターグッズ</span><h3>雑貨屋さん★アメリカン雑貨★国旗★ルート66★MARVEL 10万円分選定</h3><p class="price">¥100,000</p></div></a>
       <a class="card" data-cat="interior" data-tags="american" href="https://jp.mercari.com/item/m55041558000?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m55041558000_1.jpg" alt="アメリカン鍋敷き&amp;鍋つかみミント2点セット　アメリカ国旗　(他別売り)"><div class="body"><span class="tag">雑貨・インテリア</span><h3>アメリカン鍋敷き&amp;鍋つかみミント2点セット　アメリカ国旗　(他別売り)</h3><p class="price">¥4,800</p></div></a>
-      <a class="card" data-cat="interior" data-tags="american" href="https://jp.mercari.com/item/m27306922185?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m27306922185_1.jpg" alt="アメリカン　ドール　ぬいぐるみ　うさぎ　チェック　写真縦"><div class="body"><span class="tag">雑貨・インテリア</span><h3>アメリカン　ドール　ぬいぐるみ　うさぎ　チェック　写真縦</h3><p class="price">¥3,333</p></div></a>
+      <a class="card" data-cat="chara" data-tags="american" href="https://jp.mercari.com/item/m27306922185?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m27306922185_1.jpg" alt="アメリカン　ドール　ぬいぐるみ　うさぎ　チェック　写真縦"><div class="body"><span class="tag">キャラクターグッズ</span><h3>アメリカン　ドール　ぬいぐるみ　うさぎ　チェック　写真縦</h3><p class="price">¥3,333</p></div></a>
       <a class="card" data-cat="interior" data-tags="american" href="https://jp.mercari.com/item/m65393894322?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m65393894322_1.jpg" alt="BADBOY U.S.A USA バッドボーイ"><div class="body"><span class="tag">雑貨・インテリア</span><h3>BADBOY U.S.A USA バッドボーイ</h3><p class="price">¥1,450</p></div></a>
       <a class="card" data-cat="komono" data-tags="american" href="https://jp.mercari.com/item/m26799946157?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m26799946157_1.jpg" alt="保冷バッグ　yogabba gabba! アメリカン雑貨"><div class="body"><span class="tag">バッグ・小物</span><h3>保冷バッグ　yogabba gabba! アメリカン雑貨</h3><p class="price">¥540</p></div></a>
       <a class="card" data-cat="interior" data-tags="american" href="https://jp.mercari.com/item/m16030791954?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="https://static.mercari-jp.com/item/detail/orig/photos/m16030791954_1.jpg" alt="トラックアメリカン時計"><div class="body"><span class="tag">雑貨・インテリア</span><h3>トラックアメリカン時計</h3><p class="price">¥3,900</p></div></a>
@@ -196,6 +196,8 @@
     c.classList.add('on'); chara=c.dataset.c; apply();
   });});
   document.getElementById('q').addEventListener('input',function(e){q=e.target.value.trim().toLowerCase();apply();});
+  var pch=new URLSearchParams(location.search).get('chara');
+  if(pch){ var tgt=document.querySelector('.cchip[data-c="'+pch+'"]'); if(tgt){ tgt.click(); } }
   apply();
 })();
 </script>
@@ -301,6 +303,7 @@
   });
   document.getElementById('cartOpen').addEventListener('click', function(){ document.getElementById('cartPanel').classList.add('open'); });
   document.getElementById('cartClose').addEventListener('click', function(){ document.getElementById('cartPanel').classList.remove('open'); });
+  document.addEventListener('click', function(e){ var cp=document.getElementById('cartPanel'); var co=document.getElementById('cartOpen'); if(cp && cp.classList.contains('open') && !cp.contains(e.target) && !(co && co.contains(e.target))){ cp.classList.remove('open'); } });
   document.getElementById('cartPanel').addEventListener('click', function(e){ if(e.target===this) this.classList.remove('open'); });
   document.getElementById('cartClear').addEventListener('click', function(){ cart=[]; save(); render(); });
   document.getElementById('cartCopy').addEventListener('click', function(){
@@ -418,6 +421,10 @@ body.cart-on #botPanel{bottom:144px}
     if(panel.classList.contains('open')&&!log.children.length){
       addMsg('bot','こんにちは。Lea Mahaloです。商品探し、コーデ、まとめ買いの相談ができます。');
     }
+  });
+  document.addEventListener('click',function(e){
+    var bb=document.getElementById('botBtn');
+    if(panel.classList.contains('open') && !panel.contains(e.target) && !(bb && bb.contains(e.target))){ panel.classList.remove('open'); }
   });
   function send(t,isQuick){
     if(!t)return; addMsg('me',t.replace(/</g,'&lt;'));

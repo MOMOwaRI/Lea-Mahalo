@@ -207,6 +207,8 @@
     c.classList.add('on'); chara=c.dataset.c; apply();
   });});
   document.getElementById('q').addEventListener('input',function(e){q=e.target.value.trim().toLowerCase();apply();});
+  var pch=new URLSearchParams(location.search).get('chara');
+  if(pch){ var tgt=document.querySelector('.cchip[data-c="'+pch+'"]'); if(tgt){ tgt.click(); } }
   apply();
 })();
 </script>
@@ -312,6 +314,7 @@
   });
   document.getElementById('cartOpen').addEventListener('click', function(){ document.getElementById('cartPanel').classList.add('open'); });
   document.getElementById('cartClose').addEventListener('click', function(){ document.getElementById('cartPanel').classList.remove('open'); });
+  document.addEventListener('click', function(e){ var cp=document.getElementById('cartPanel'); var co=document.getElementById('cartOpen'); if(cp && cp.classList.contains('open') && !cp.contains(e.target) && !(co && co.contains(e.target))){ cp.classList.remove('open'); } });
   document.getElementById('cartPanel').addEventListener('click', function(e){ if(e.target===this) this.classList.remove('open'); });
   document.getElementById('cartClear').addEventListener('click', function(){ cart=[]; save(); render(); });
   document.getElementById('cartCopy').addEventListener('click', function(){
@@ -429,6 +432,10 @@ body.cart-on #botPanel{bottom:144px}
     if(panel.classList.contains('open')&&!log.children.length){
       addMsg('bot','こんにちは。Lea Mahaloです。商品探し、コーデ、まとめ買いの相談ができます。');
     }
+  });
+  document.addEventListener('click',function(e){
+    var bb=document.getElementById('botBtn');
+    if(panel.classList.contains('open') && !panel.contains(e.target) && !(bb && bb.contains(e.target))){ panel.classList.remove('open'); }
   });
   function send(t,isQuick){
     if(!t)return; addMsg('me',t.replace(/</g,'&lt;'));
