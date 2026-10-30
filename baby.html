@@ -152,7 +152,7 @@
   <a class="backbtn" href="index.html">← HOMEへ戻る</a>
   <p class="note">ご購入前に、必ず<strong>在庫確認コメント</strong>をお願いします（必須）。実店舗と在庫を共有しているため、確認なしのご購入はキャンセルをお願いする場合があります。価格・在庫はメルカリ側の表示が最新です。気になる商品は「カゴに入れる」でまとめておけます。</p>
   <input id="q" type="search" placeholder="このページ内で検索（例：花柄、レース、黒）" style="width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;margin-bottom:10px">
-  <div class="cchips"><button class="cchip on" data-c="all">キャラすべて</button><button class="cchip" data-c="disney">ディズニー</button><button class="cchip" data-c="anpanman">アンパンマン</button></div>
+  
   <p id="hitcount" style="font-weight:700;color:var(--rose-deep);margin:8px 0"></p>
   <div class="grid" id="grid">
       <a class="card" data-cat="kids" href="https://jp.mercari.com/item/m29290270976?afid=8912821522" target="_blank" rel="noopener"><img loading="lazy" src="img/items/m29290270976.jpg" alt="BABYDOLL キッズ ジャケット イエロー"><div class="body"><span class="tag">ベビー・キッズ</span><h3>BABYDOLL キッズ ジャケット イエロー</h3><p class="price">¥1,500</p></div></a>
@@ -235,6 +235,8 @@
     c.classList.add('on'); chara=c.dataset.c; apply();
   });});
   document.getElementById('q').addEventListener('input',function(e){q=e.target.value.trim().toLowerCase();apply();});
+  var pch=new URLSearchParams(location.search).get('chara');
+  if(pch){ var tgt=document.querySelector('.cchip[data-c="'+pch+'"]'); if(tgt){ tgt.click(); } }
   apply();
 })();
 </script>
