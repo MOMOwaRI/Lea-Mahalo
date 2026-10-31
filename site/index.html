@@ -319,9 +319,9 @@ html.js .mrv.in{opacity:1;transform:none}
       <a class="lcard" href="tops.html"><strong>トップス</strong><small>85点</small></a>
       <a class="lcard" href="outer.html"><strong>羽織りもの</strong><small>52点</small></a>
       <a class="lcard" href="bottoms.html"><strong>ボトムス</strong><small>52点</small></a>
-      <a class="lcard" href="interior.html"><strong>雑貨・インテリア</strong><small>234点</small></a>
-      <a class="lcard" href="chara.html"><strong>キャラクターグッズ</strong><small>135点</small></a>
-      <a class="lcard" href="komono.html"><strong>バッグ・小物</strong><small>73点</small></a>
+      <a class="lcard" href="interior.html"><strong>雑貨・インテリア</strong><small>235点</small></a>
+      <a class="lcard" href="chara.html"><strong>キャラクターグッズ</strong><small>137点</small></a>
+      <a class="lcard" href="komono.html"><strong>バッグ・小物</strong><small>75点</small></a>
       <a class="lcard" href="baby.html"><strong>ベビー・キッズ</strong><small>56点</small></a>
       <a class="lcard" href="formal.html"><strong>フォーマル・ドレス</strong><small>28点</small></a>
       <a class="lcard" href="retro.html"><strong>平成レトロ・雑貨</strong><small>62点</small></a>
@@ -329,7 +329,7 @@ html.js .mrv.in{opacity:1;transform:none}
       <a class="lcard" href="european.html"><strong>ヨーロピアン</strong><small>79点</small></a>
       <a class="lcard" href="american.html"><strong>アメリカン</strong><small>17点</small></a>
       <a class="lcard" href="heisei.html"><strong>平成レトロ特集</strong><small>46点</small></a>
-      <a class="lcard" href="biyoshi.html"><strong>美容師セレクト</strong><small>8点</small></a>
+      <a class="lcard" href="biyoshi.html"><strong>美容師セレクト</strong><small>3点</small></a>
       <a class="lcard" href="hobby.html"><strong>本・ホビー・その他</strong><small>19点</small></a>
     </div>
     <p class="note" style="margin-top:12px">ご購入前に、必ず<strong>在庫確認コメント</strong>をお願いします（必須）。実店舗と在庫を共有しているため、確認なしのご購入はキャンセルをお願いする場合があります。</p>
@@ -798,7 +798,7 @@ try {
   });
   document.getElementById('cartOpen').addEventListener('click', function(){ document.getElementById('cartPanel').classList.add('open'); });
   document.getElementById('cartClose').addEventListener('click', function(){ document.getElementById('cartPanel').classList.remove('open'); });
-  document.addEventListener('click', function(e){ var cp=document.getElementById('cartPanel'); var co=document.getElementById('cartOpen'); if(cp && cp.classList.contains('open') && !cp.contains(e.target) && !(co && co.contains(e.target))){ cp.classList.remove('open'); } });
+  document.addEventListener('click', function(e){ var cp=document.getElementById('cartPanel'); var co=document.getElementById('cartOpen'); var box=(e.target && e.target.closest) ? e.target.closest('.cart-box') : null; if(cp && cp.classList.contains('open') && !box && !(co && co.contains(e.target))){ cp.classList.remove('open'); } });
   document.getElementById('cartPanel').addEventListener('click', function(e){ if(e.target===this) this.classList.remove('open'); });
   document.getElementById('cartClear').addEventListener('click', function(){ cart=[]; save(); render(); });
   document.getElementById('cartCopy').addEventListener('click', function(){
