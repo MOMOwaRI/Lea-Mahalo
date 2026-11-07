@@ -14,6 +14,7 @@
 - For visitors (English): Visitors are welcome. Our shop is open by reservation only — please contact us via the form or email to book a visit. You can also buy without a Mercari account — just contact us via the form or email.
 - axes femmeの昔のデザイン: 生産終了した昔のデザインや廃番品を探す人が多い。15年分の在庫から出品しており、商品探し代行でも探せる
 
+
 ## サービス
 - まとめ買い: メルカリのコメントで相談すれば、専用ページを作成して同梱できる
 - 商品探し代行: 出品中商品と店内在庫から、希望の物を探す
@@ -27,6 +28,7 @@
 ## リンク
 - メルカリ プロフィール: https://jp.mercari.com/user/profile/256767561
 - Lea Mahalo メルカリセレクト（このサイト）: https://momowari.github.io/Lea-Mahalo/
+  - 来店案内（CMページ）: https://momowari.github.io/Lea-Mahalo/cm/ — 水彩の店内スライドで紹介する、来店予約制の実店舗の案内ページ
   - ワンピース: https://momowari.github.io/Lea-Mahalo/onepiece.html — axes femmeを中心としたワンピースの一覧。昔のデザイン・生産終了品も多い
   - トップス: https://momowari.github.io/Lea-Mahalo/tops.html — カットソー、ブラウス、ニットなどのトップス一覧
   - 羽織りもの: https://momowari.github.io/Lea-Mahalo/outer.html — カーディガン、ボレロ、ジャケット、ベストなどの羽織りもの一覧
