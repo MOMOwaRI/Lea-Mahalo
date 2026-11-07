@@ -84,6 +84,16 @@ a{color:var(--accent);}
   transition:opacity 1.2s ease-in-out;
 }
 .slider .slide.is-active{opacity:1;}
+.slider .wslide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1.2s ease-in-out;
+}
+.slider .wslide.is-active{opacity:1;}
 .top-title{
   position:absolute;
   left:6%;
@@ -289,8 +299,11 @@ a{color:var(--accent);}
     <p>このページの絵は全部、店内の景色をそのまま水彩で描いたものです。</p>
   </section>
 
-  <section class="slider" aria-hidden="true">
-    <div class="slide is-active" style="background-image:url('wc-interior.jpg')"></div>
+  <section class="slider" id="slider2">
+    <img class="wslide is-active" src="wc-interior.jpg" alt="Lea Mahalo 店内の水彩（店内全体）">
+    <img class="wslide" src="wc-goods.jpg" alt="Lea Mahalo 店内の水彩（壁の小物とランドリーの看板）">
+    <img class="wslide" src="wc-cat.jpg" alt="Lea Mahalo の水彩（入口わきの猫）">
+    <img class="wslide" src="wc-shopcorner.jpg" alt="Lea Mahalo 店内の水彩（隅の棚と観葉植物）">
   </section>
 
   <section class="band band--2 fade">
@@ -360,6 +373,7 @@ a{color:var(--accent);}
     }, interval);
   }
   startSlider('slider1', 5800);
+  startSlider('slider2', 5800);
 
   var targets = document.querySelectorAll('.fade');
   if('IntersectionObserver' in window){
