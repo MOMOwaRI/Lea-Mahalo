@@ -27,23 +27,23 @@
 ## リンク
 - メルカリ プロフィール: https://jp.mercari.com/user/profile/256767561
 - Lea Mahalo メルカリセレクト（このサイト）: https://momowari.github.io/Lea-Mahalo/
-  - ワンピース: https://momowari.github.io/Lea-Mahalo/onepiece.html
-  - トップス: https://momowari.github.io/Lea-Mahalo/tops.html
-  - 羽織りもの: https://momowari.github.io/Lea-Mahalo/outer.html
-  - ボトムス: https://momowari.github.io/Lea-Mahalo/bottoms.html
-  - ベビー・キッズ: https://momowari.github.io/Lea-Mahalo/baby.html
-  - 雑貨・インテリア: https://momowari.github.io/Lea-Mahalo/interior.html
-  - キャラクターグッズ: https://momowari.github.io/Lea-Mahalo/chara.html
-  - バッグ・小物: https://momowari.github.io/Lea-Mahalo/komono.html
-  - フォーマル・ドレス: https://momowari.github.io/Lea-Mahalo/formal.html
-  - 本・ホビー・その他: https://momowari.github.io/Lea-Mahalo/hobby.html
-  - 美容師セレクト: https://momowari.github.io/Lea-Mahalo/biyoshi.html
-  - 平成レトロ・雑貨: https://momowari.github.io/Lea-Mahalo/retro.html
-  - ロリータ特集: https://momowari.github.io/Lea-Mahalo/lolita.html
-  - ヨーロピアン特集: https://momowari.github.io/Lea-Mahalo/european.html
-  - アメリカン特集: https://momowari.github.io/Lea-Mahalo/american.html
-  - 平成レトロ特集: https://momowari.github.io/Lea-Mahalo/heisei.html
-  - コーデ図鑑（全56通り）: https://momowari.github.io/Lea-Mahalo/coords.html
+  - ワンピース: https://momowari.github.io/Lea-Mahalo/onepiece.html — axes femmeを中心としたワンピースの一覧。昔のデザイン・生産終了品も多い
+  - トップス: https://momowari.github.io/Lea-Mahalo/tops.html — カットソー、ブラウス、ニットなどのトップス一覧
+  - 羽織りもの: https://momowari.github.io/Lea-Mahalo/outer.html — カーディガン、ボレロ、ジャケット、ベストなどの羽織りもの一覧
+  - ボトムス: https://momowari.github.io/Lea-Mahalo/bottoms.html — スカート、パンツなどのボトムス一覧
+  - ベビー・キッズ: https://momowari.github.io/Lea-Mahalo/baby.html — ベビー服、キッズ服、キッズ雑貨の一覧
+  - 雑貨・インテリア: https://momowari.github.io/Lea-Mahalo/interior.html — 置物、時計、フォトフレーム、食器などの雑貨・インテリア一覧
+  - キャラクターグッズ: https://momowari.github.io/Lea-Mahalo/chara.html — グルーミー、アンパンマン、ディズニー、ポケモン、犬夜叉などのキャラクターグッズ一覧
+  - バッグ・小物: https://momowari.github.io/Lea-Mahalo/komono.html — バッグ、ポーチ、財布、帽子、アクセサリーなどの小物一覧
+  - フォーマル・ドレス: https://momowari.github.io/Lea-Mahalo/formal.html — 結婚式、参観日、入学式などに使えるフォーマルウェアとドレスの一覧
+  - 本・ホビー・その他: https://momowari.github.io/Lea-Mahalo/hobby.html — 本、漫画、ゲーム、日用品などの一覧
+  - 美容師セレクト: https://momowari.github.io/Lea-Mahalo/biyoshi.html — 美容室MAHALOの視点で選んだ美容アイテムの一覧
+  - 平成レトロ・雑貨: https://momowari.github.io/Lea-Mahalo/retro.html — 平成レトロのキャラグッズ、雑貨、インテリアなどの一覧
+  - ロリータ特集: https://momowari.github.io/Lea-Mahalo/lolita.html — 黒レースやフリルなど、ロリータ・ゴスロリファッションのアイテム特集（axes femme本体はトップのセレクトに集約）
+  - ヨーロピアン特集: https://momowari.github.io/Lea-Mahalo/european.html — 花柄・レースのヨーロピアンなアイテム特集（axes femme本体はトップのセレクトに集約）
+  - アメリカン特集: https://momowari.github.io/Lea-Mahalo/american.html — スタジャン、デニム、キャラクタージャケットなどのアメリカンなアイテム特集（axes femme本体はトップのセレクトに集約）
+  - 平成レトロ特集: https://momowari.github.io/Lea-Mahalo/heisei.html — 平成レトロのキャラクターグッズや懐かしいアイテムの特集
+  - コーデ図鑑（全56通り）: https://momowari.github.io/Lea-Mahalo/coords.html — 着用イメージつきコーデ全56通りの一覧。各コーデの使用商品・価格・合計つき
 
 ## ロリータ・ゴスロリ
 axes femmeの黒レースアイテムやワンピースは、ロリータ／ゴスロリファッションで探す方にも人気です。「コーデで選ぶ」の黒レースの重ね着などが該当します。
