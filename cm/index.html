@@ -204,6 +204,8 @@ a{color:var(--accent);}
   text-decoration:underline;
   text-underline-offset:3px;
 }
+.foot a.blk{display:block;margin-top:12px;}
+.foot .sub{display:block;margin-top:4px;font-size:11px;color:var(--sub);}
 .foot .c{
   display:block;
   margin-top:14px;
@@ -234,14 +236,24 @@ a{color:var(--accent);}
   color:var(--cream);
 }
 .fixbar .primary{
-  width:60%;
+  width:50%;
   background:var(--accent);
 }
 .fixbar .secondary{
-  width:40%;
+  width:29%;
   background:transparent;
   border:1px solid var(--rule);
   color:var(--cream);
+}
+
+.fixbar .far{
+  width:21%;
+  background:transparent;
+  font-size:12px;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  white-space:nowrap;
+  padding:0 2px;
 }
 
 /* ===== スクロールで一度だけフェードイン ===== */
@@ -265,7 +277,8 @@ a{color:var(--accent);}
   </header>
   <div class="kicker-band">
     <p class="copy">この扉は、あなたのために開きます。</p>
-    <p class="meta">松山・味酒町／予約制の小さな雑貨店</p>
+    <p class="meta">〒790-0814 愛媛県松山市味酒町3-2-29 MAHALOビル1F奥｜来店は予約制</p>
+    <p class="meta">ヨーロピアン雑貨・ローズ雑貨・輸入雑貨と、ハンドメイド作家の作品</p>
   </div>
 
   <!-- 2) 中盤 -->
@@ -287,6 +300,12 @@ a{color:var(--accent);}
     <p>ネットでは伝わらない量が、置いてあります。</p>
   </section>
 
+  <section class="band band--cream fade">
+    <h2>ご来店いただけない方へ</h2>
+    <p>遠くにお住まいの方へ。日々の出品の中から、店の空気に近いものを選んでご紹介しています。</p>
+    <p><a href="https://momowari.github.io/Lea-Mahalo/">メルカリセレクトで見る →</a></p>
+  </section>
+
   <figure class="feature fade" style="margin:0;">
     <img src="wc-zakka-crop.jpg" alt="Lea Mahalo の入口の看板（水彩）">
     <figcaption class="cap">入口の看板です。美容室の入口から、そのままお入りください。</figcaption>
@@ -300,6 +319,8 @@ a{color:var(--accent);}
       <li><span class="num">②</span><span class="t">日時を決める<span class="d">ご都合のよい日と時間をすり合わせます。</span></span></li>
       <li><span class="num">③</span><span class="t">その日だけ開店<span class="d">約束の時間に扉を開けて、お待ちしています。</span></span></li>
     </ol>
+    <p class="note" style="margin:0 0 4px;">見るだけのご来店も歓迎です。お一人でも、お子さま連れでもどうぞ。</p>
+    <p class="note" style="margin:0 0 20px;">日程は後から変更もできます。ご連絡への返信はメールで差し上げます。</p>
     <div class="addr">
       <p class="ja">〒790-0814　愛媛県松山市味酒町3-2-29　MAHALOビル1F奥</p>
       <p class="note">ビルの正面から入り、1階の廊下をまっすぐ進んだ突き当たりが Lea Mahalo です。</p>
@@ -309,6 +330,9 @@ a{color:var(--accent);}
   <!-- 4) 最下部 -->
   <footer class="foot">
     <a href="https://momowari.github.io/Lea-Mahalo/">お取り扱い品の一覧・通販はこちら →</a>
+    <a class="blk" href="https://jp.mercari.com/user/profile/256767561" target="_blank" rel="noopener">メルカリの全出品を見る（1,300点以上）→</a>
+    <span class="sub">※出品の中心はアクシーズファム等のレディース衣類です</span>
+    <a class="blk" href="https://momowari.github.io/ohana-jima/" target="_blank" rel="noopener">水彩の街「OHANA島」でも、Lea Mahaloに会えます →</a>
     <span class="c">Lea Mahalo　since 2011　Matsuyama</span>
   </footer>
 
@@ -316,8 +340,9 @@ a{color:var(--accent);}
 
 <!-- 固定バー -->
 <nav class="fixbar">
-  <a class="primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfKUJVVdp3wrjr1EqtDk6lFYbtu0z9K3n8YRe8CVGnXCVYzwg/viewform" target="_blank" rel="noopener">ご来店を予約する</a>
+  <a class="primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfKUJVVdp3wrjr1EqtDk6lFYbtu0z9K3n8YRe8CVGnXCVYzwg/viewform" target="_blank" rel="noopener">来店日を相談する</a>
   <a class="secondary" href="https://www.google.com/maps/search/?api=1&amp;query=松山市味酒町3-2-29+MAHALOビル" target="_blank" rel="noopener">地図を見る</a>
+  <a class="far" href="https://momowari.github.io/Lea-Mahalo/">遠方の方へ</a>
 </nav>
 
 <script>
