@@ -196,6 +196,13 @@ window.__langSuffix = {"en": "\nAlways answer in English, politely and briefly."
 <meta property="og:url" content="https://momowari.github.io/Lea-Mahalo/">
 <meta property="og:image" content="https://momowari.github.io/Lea-Mahalo/img/shop/corner.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zfhdm3oe0q");
+</script>
 </head>
 <body>
 <header>
@@ -1057,5 +1064,18 @@ list.forEach(function(el){ io.observe(el); });
 })();
 </script>
 <!-- /lmenu -->
+<script>
+/* CV計測: LINE/メルカリへのタップをGA4イベントで送信（2026-11-18） */
+document.addEventListener('click', function(e){
+  var a = (e.target && e.target.closest) ? e.target.closest('a') : null;
+  if(!a || typeof gtag !== 'function') return;
+  var href = a.getAttribute('href') || '';
+  if(/(?:lin\.ee|line\.me)/.test(href)){
+    gtag('event', 'line_click', {link_url: href});
+  } else if(/mercari\.com/.test(href)){
+    gtag('event', 'mercari_click', {link_url: href});
+  }
+});
+</script>
 </body>
 </html>
